@@ -11,8 +11,8 @@
     "url": "git+https://github.com/moaazsidat/react-native-qrcode-scanner.git"
   },
   "keywords": [
-    "react",
     "react-native",
+    "react",
     "ios",
     "qrcode",
     "qr",
