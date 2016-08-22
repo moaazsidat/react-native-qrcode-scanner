@@ -1,0 +1,28 @@
+{
+  "name": "react-native-qrcode-scanner",
+  "version": "1.0.0",
+  "description": "A QR code scanner for React Native.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moaazsidat/react-native-qrcode-scanner.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "ios",
+    "qrcode",
+    "qr",
+    "scanner",
+    "barcode"
+  ],
+  "author": "Moaaz Sidat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
+  },
+  "homepage": "https://github.com/moaazsidat/react-native-qrcode-scanner#readme"
+}
