@@ -1,17 +1,21 @@
 # react-native-qrcode-scanner
 
-A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera))
+A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
 
-Please note, this will also function as a generic barcode scanner, however, this module was initially built as a QR code scanner.
+Please note, this will also function as a generic barcode scanner by the virtue of the above module supporting barcode scanning, however, this module was initially built as a QR code scanner.
 
 
 ## Getting started
 
 To install and begin using react-native-qrcode-scanner:
 
-`npm install react-native-qrcode-scanner`
+```
+npm install react-native-qrcode-scanner
+```
 
-`react-native link react-native-qrcode-scanner`
+```
+react-native link react-native-qrcode-scanner
+```
 
 ## Usage
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the <QRCodeScanner /> tag.
