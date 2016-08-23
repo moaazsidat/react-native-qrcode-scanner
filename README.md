@@ -100,7 +100,7 @@ AppRegistry.registerComponent('awesome', () => ScanScreen);
 ```
 
 Screenshot of the above:
-<img src="http://imgur.com/u9Q0Kn9" width="375"/>
+<img src="https://dl.dropboxusercontent.com/u/81686964/react-native-qrcode-scanner.jpg" width="375"/>
 
 
 ## Props
