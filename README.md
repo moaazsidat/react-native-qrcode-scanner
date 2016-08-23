@@ -13,7 +13,7 @@ Hello World
 
 ### props
 
-`onSuccess`
+`onRead`
 
 `reactivate`
 

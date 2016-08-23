@@ -19,7 +19,7 @@ import Camera from 'react-native-camera'
 
 export default class QRCodeScanner extends Component {
   static propTypes = {
-    onSuccess: PropTypes.func.isRequired,
+    onRead: PropTypes.func.isRequired,
     reactivate: PropTypes.bool,
     reactivateTimeout: PropTypes.number,
     fadeIn: PropTypes.bool,
@@ -36,7 +36,7 @@ export default class QRCodeScanner extends Component {
   }
 
   static defaultProps = {
-    onSuccess: () => (console.log('success!')),
+    onRead: () => (console.log('success!')),
     reactivate: false,
     reactivateTimeout: 0,
     fadeIn: true,
@@ -75,7 +75,7 @@ export default class QRCodeScanner extends Component {
     Vibration.vibrate();
     if (!this.state.scanning) {
       this.setScanning(true);
-      this.props.onSuccess(e)
+      this.props.onRead(e)
       if (this.props.reactivate) {
         setTimeout(() => (this.setScanning(false)), this.props.reactivateTimeout);
       }
