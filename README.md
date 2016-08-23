@@ -7,25 +7,25 @@ Please note, this will also function as a generic barcode scanner by the virtue 
 
 Please note, this currently reliably supports **iOS only**. I'll be looking to setup and add Android support in the coming weeks.
 
+I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup.
+
 
 ## Getting started
 
 To install and begin using react-native-qrcode-scanner:
 
-```
-npm install react-native-qrcode-scanner
-```
-```
-react-native link react-native-qrcode-scanner
-```
+`npm install react-native-qrcode-scanner`
+
+`react-native link react-native-qrcode-scanner`
 
 ## Usage
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the <QRCodeScanner /> tag.
 
-```
+```js
 'use strict';
 
 import React, { Component } from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -44,6 +44,8 @@ class ScanScreen extends Component {
     Linking.openURL(e.data).catch(err => console.error('An error occured', err))
   }
   render() {
+
+
     return (
       <NavigatorIOS
         initialRoute={{
@@ -157,5 +159,7 @@ Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-na
 This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
 
 ### To do
-- Add usage example to get started using it in the project
 - Document other complex examples
+- Add props for width and height of the camera view
+- Fix styling to work across iOS screen sizes
+- Add support for Android
