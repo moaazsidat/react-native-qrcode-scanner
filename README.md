@@ -103,6 +103,9 @@ Screenshot of the above from the device:
 
 <img src="https://dl.dropboxusercontent.com/u/81686964/react-native-qrcode-scanner.jpg" width="375" border="1"/>
 
+Please open an issue if something doesn't work or is not clear enough.
+
+
 
 ## Props
 
