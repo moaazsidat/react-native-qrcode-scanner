@@ -168,3 +168,4 @@ This QR code scanner was inspired by the QR code scanner within [Whatsapp](https
 - Add props for width and height of the camera view
 - Fix styling to work across iOS screen sizes
 - Add support for Android
+- Add some tests
