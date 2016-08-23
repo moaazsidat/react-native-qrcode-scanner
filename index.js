@@ -25,11 +25,11 @@ export default class QRCodeScanner extends Component {
     fadeIn: PropTypes.bool,
     showMarker: PropTypes.bool,
     customMarker: PropTypes.element,
-    topInfo: PropTypes.oneOfType([
+    topContent: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.string,
     ]),
-    bottomInfo: PropTypes.oneOfType([
+    bottomContent: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.string,
     ]),
@@ -83,16 +83,16 @@ export default class QRCodeScanner extends Component {
     return;
   }
 
-  _renderTopInfo() {
-    if (this.props.topInfo) {
-      return this.props.topInfo;
+  _renderTopContent() {
+    if (this.props.topContent) {
+      return this.props.topContent;
     }
     return null;
   }
 
-  _renderBottomInfo() {
-    if (this.props.bottomInfo) {
-      return this.props.bottomInfo;
+  _renderBottomContent() {
+    if (this.props.bottomContent) {
+      return this.props.bottomContent;
     }
     return null;
   }
@@ -135,11 +135,11 @@ export default class QRCodeScanner extends Component {
           marginTop: 64,
         }}>
         <View style={styles.infoView}>
-          {this._renderTopInfo()}
+          {this._renderTopContent()}
         </View>
         {this._renderCamera()}
         <View style={styles.infoView}>
-          {this._renderBottomInfo()}
+          {this._renderBottomContent()}
         </View>
       </View>
     )
