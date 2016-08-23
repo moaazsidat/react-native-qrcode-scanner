@@ -20,7 +20,7 @@ To install and start using react-native-qrcode-scanner:
 
 ## Usage
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag.
-
+(more examples coming soon)
 ```js
 'use strict';
 
