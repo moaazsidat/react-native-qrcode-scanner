@@ -42,7 +42,7 @@ To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` m
 `bottomInfo`
 
 ## License
-See [License](LICENSE.md]
+See [License](LICENSE.md)
 
 
 ### To do
