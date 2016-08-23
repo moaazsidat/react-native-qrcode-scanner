@@ -30,7 +30,6 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  Navigator,
   NavigatorIOS,
   TouchableOpacity,
   TouchableHighlight,
@@ -43,9 +42,8 @@ class ScanScreen extends Component {
   onSuccess(e) {
     Linking.openURL(e.data).catch(err => console.error('An error occured', err))
   }
+
   render() {
-
-
     return (
       <NavigatorIOS
         initialRoute={{
@@ -62,7 +60,6 @@ class ScanScreen extends Component {
     )
   }
 }
-
 
 const styles = StyleSheet.create({
   button: {
@@ -101,6 +98,10 @@ const styles = StyleSheet.create({
 
 AppRegistry.registerComponent('awesome', () => ScanScreen);
 ```
+
+Screenshot of the above:
+<img src="http://imgur.com/u9Q0Kn9" width="375"/>
+
 
 ## Props
 
