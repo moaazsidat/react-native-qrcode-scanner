@@ -12,14 +12,14 @@ I wrote this module because I couldn't find one that could be simply plugged int
 
 ## Getting started
 
-To install and begin using react-native-qrcode-scanner:
+To install and start using react-native-qrcode-scanner:
 
 `npm install react-native-qrcode-scanner`
 
 `react-native link react-native-qrcode-scanner`
 
 ## Usage
-To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the <QRCodeScanner /> tag.
+To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag.
 
 ```js
 'use strict';
@@ -40,7 +40,7 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
-  onSuccess() {
+  onSuccess(e) {
     Linking.openURL(e.data).catch(err => console.error('An error occured', err))
   }
   render() {
@@ -106,9 +106,9 @@ AppRegistry.registerComponent('awesome', () => ScanScreen);
 
 #### `onRead` (required)
 propType: `func.isRequired`
-default: `() => (console.log('QR code scanned!'))`
+default: `(e) => (console.log('QR code scanned!', e))`
 
-Will call this specified method when a QR code or a barcode is detected in the camera's view
+Will call this specified method when a QR code or a barcode is detected in the camera's view passing in the event emitted upon reading the code.
 
 #### `fadeIn`
 propType: `bool`
@@ -157,6 +157,9 @@ See [License](LICENSE.md)
 Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-native-camera module](https://github.com/lwansbrough/react-native-camera) which provided me with an awesome example of how to set up this module.
 
 This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
+
+
+## Other notes
 
 ### To do
 - Document other complex examples

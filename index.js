@@ -49,7 +49,7 @@ export default class QRCodeScanner extends Component {
       fadeInOpacity: new Animated.Value(0)
     }
 
-    this.handleBarCodeRead = this.handleBarCodeRead.bind(this);
+    this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
 
   componentDidMount() {
@@ -67,14 +67,14 @@ export default class QRCodeScanner extends Component {
     }
    }
 
-  setScanning(value) {
+  _setScanning(value) {
     this.setState({ scanning: value });
   }
 
-  handleBarCodeRead(e) {
+  _handleBarCodeRead(e) {
     Vibration.vibrate();
     if (!this.state.scanning) {
-      this.setScanning(true);
+      this._setScanning(true);
       this.props.onRead(e)
       if (this.props.reactivate) {
         setTimeout(() => (this.setScanning(false)), this.props.reactivateTimeout);
@@ -114,14 +114,14 @@ export default class QRCodeScanner extends Component {
             opacity: this.state.fadeInOpacity,
             backgroundColor: 'transparent'
         }}>
-          <Camera style={styles.camera} onBarCodeRead={this.handleBarCodeRead.bind(this)}>
+          <Camera style={styles.camera} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
             {this._renderCameraMarker()}
           </Camera>
         </Animated.View>
       )
     }
     return (
-      <Camera style={styles.camera} onBarCodeRead={this.handleBarCodeRead.bind(this)}>
+      <Camera style={styles.camera} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
         {this._renderCameraMarker()}
       </Camera>
     )
