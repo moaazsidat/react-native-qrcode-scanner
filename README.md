@@ -169,7 +169,7 @@ This QR code scanner was inspired by the QR code scanner within [Whatsapp](https
 
 ## Other notes
 
-### To do (feel free to submit a PR for any of these)
+### To do
 - Document other complex examples
 - Fix styling to work across iOS screen sizes
 - Add support for Android (Going to be doing some Android development later this year, will be taking a look at this again then)
