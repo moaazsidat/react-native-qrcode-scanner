@@ -77,7 +77,7 @@ export default class QRCodeScanner extends Component {
       this._setScanning(true);
       this.props.onRead(e)
       if (this.props.reactivate) {
-        setTimeout(() => (this.setScanning(false)), this.props.reactivateTimeout);
+        setTimeout(() => (this._setScanning(false)), this.props.reactivateTimeout);
       }
     }
     return;
