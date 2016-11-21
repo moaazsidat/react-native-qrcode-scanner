@@ -1,4 +1,5 @@
 # react-native-qrcode-scanner
+[![npm version](https://badge.fury.io/js/react-native-qrcode-scanner.svg)](https://badge.fury.io/js/react-native-qrcode-scanner)
 
 A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
 
@@ -157,6 +158,9 @@ Use this to render any additional content at the bottom of the camera view.
 
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
+
+## Contributers 
+- [Matthew Constantine](https://github.com/matthewconstantine)
 
 ## License
 See [LICENSE.md](LICENSE.md)
