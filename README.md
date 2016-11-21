@@ -159,7 +159,7 @@ Use this to render any additional content at the bottom of the camera view.
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
-## Contributers 
+## Contributors 
 - [Matthew Constantine](https://github.com/matthewconstantine)
 
 ## License
