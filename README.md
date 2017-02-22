@@ -146,11 +146,11 @@ And then you should change `Privacy - Camera Usage Description` at Project - Inf
 
 > This is enforced with iOS10, which is related with [Privacy Settings in ios 10](http://useyourloaf.com/blog/privacy-settings-in-ios-10/).
 
-![](https://www.dropbox.com/s/0eegxnzw1mazhkt/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-22%2023.35.13.png?dl=1)
+![](https://www.dropbox.com/s/0eegxnzw1mazhkt/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202017-02-22%2023.35.13.png?dl=1 | width=375)
 
 Then your app will work properly.
 
-![](https://www.dropbox.com/s/r8yl87xd9e5fl9w/2017-02-22%2023.37.14.png?dl=1)
+![](https://www.dropbox.com/s/r8yl87xd9e5fl9w/2017-02-22%2023.37.14.png?dl=1 | width=375)
 
 ## Usage: If you already have your app
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag.
