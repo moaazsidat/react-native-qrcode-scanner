@@ -15,18 +15,18 @@ I wrote this module because I couldn't find one that could be simply plugged int
 
 ### Requirements
 1. With iOS 10 and higher you need to add the "Privacy - Camera Usage Description" key to the info.plist of your project. This should be found in 'your_project/ios/your_project/Info.plist'.  Add the following code:
-```
-<key>NSCameraUsageDescription</key>
-<string>Your message to user when the camera is accessed for the first time</string>
+  ```
+  <key>NSCameraUsageDescription</key>
+  <string>Your message to user when the camera is accessed for the first time</string>
 
-<!-- Include this only if you are planning to use the camera roll -->
-<key>NSPhotoLibraryUsageDescription</key>
-<string>Your message to user when the photo library is accessed for the first time</string>
+  <!-- Include this only if you are planning to use the camera roll -->
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Your message to user when the photo library is accessed for the first time</string>
 
-<!-- Include this only if you are planning to use the microphone for video recording -->
-<key>NSMicrophoneUsageDescription</key>
-<string>Your message to user when the microsphone is accessed for the first time</string>
-```
+  <!-- Include this only if you are planning to use the microphone for video recording -->
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Your message to user when the microsphone is accessed for the first time</string>
+  ```
 2. [react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to install. To install, run the following commands:
   1. `npm install react-native-camera@https://github.com/lwansbrough/react-native-camera.git --save`
   2. `react-native link react-native-camera`
