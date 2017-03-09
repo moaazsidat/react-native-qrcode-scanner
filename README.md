@@ -33,10 +33,10 @@ I wrote this module because I couldn't find one that could be simply plugged int
 
 ### To install and start using react-native-qrcode-scanner:
 ```
-npm install react-native-qrcode-scanner
+npm install react-native-qrcode-scanner --save
 ```
 ```
-react-native link react-native-qrcode-scanner`
+react-native link react-native-qrcode-scanner
 ```
 
 ## Usage
