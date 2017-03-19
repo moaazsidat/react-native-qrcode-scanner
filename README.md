@@ -202,8 +202,4 @@ This QR code scanner was inspired by the QR code scanner within [Whatsapp](https
 
 ### To do
 - Document other complex examples
-- Fix styling to work across iOS screen sizes
-- Add support for Android (Going to be doing some Android development later this year, will be taking a look at this again then)
 - Add some tests
-- Add support for width and height of the camera view
-- Add contributing guidelines
