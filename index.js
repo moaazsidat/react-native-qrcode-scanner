@@ -25,6 +25,9 @@ export default class QRCodeScanner extends Component {
     fadeIn: PropTypes.bool,
     showMarker: PropTypes.bool,
     customMarker: PropTypes.element,
+    cameraStyle: PropTypes.any,
+    topViewStyle: PropTypes.any,
+    bottomViewStyle: PropTypes.any,
     topContent: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.string,
@@ -114,7 +117,7 @@ export default class QRCodeScanner extends Component {
             opacity: this.state.fadeInOpacity,
             backgroundColor: 'transparent'
         }}>
-          <Camera style={styles.camera} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+          <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
             {this._renderCameraMarker()}
           </Camera>
         </Animated.View>
@@ -134,11 +137,11 @@ export default class QRCodeScanner extends Component {
           flex: 1,
           marginTop: 64,
         }}>
-        <View style={styles.infoView}>
+        <View style={[styles.infoView, this.props.topViewStyle]}>
           {this._renderTopContent()}
         </View>
         {this._renderCamera()}
-        <View style={styles.infoView}>
+        <View style={[styles.infoView, this.props.bottomViewStyle]}>
           {this._renderBottomContent()}
         </View>
       </View>
