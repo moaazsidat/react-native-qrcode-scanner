@@ -47,8 +47,9 @@ react-native link react-native-qrcode-scanner
 ```
 
 ## Usage
-To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag.
-(more examples coming soon)
+To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
+
+Here is an example of basic usage:
 ```js
 'use strict';
 
@@ -60,7 +61,6 @@ import {
   Text,
   NavigatorIOS,
   TouchableOpacity,
-  TouchableHighlight,
   Linking,
 } from 'react-native';
 
@@ -68,7 +68,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
   onSuccess(e) {
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err))
+    Linking.openURL(e.data).catch(err => console.error('An error occured', err));
   }
 
   render() {
@@ -79,29 +79,25 @@ class ScanScreen extends Component {
           title: 'Scan Code',
           passProps: {
             onRead: this.onSuccess.bind(this),
-            topContent: <Text style={styles.centerText}>Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.</Text>,
-            bottomContent: <TouchableOpacity style={styles.buttonTouchable}><Text style={styles.buttonText}>OK. Got it!</Text></TouchableOpacity>
-          }
+            topContent: (
+              <Text style={styles.centerText}>
+                Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
+              </Text>
+            ),
+            bottomContent: (
+              <TouchableOpacity style={styles.buttonTouchable}>
+                <Text style={styles.buttonText}>OK. Got it!</Text>
+              </TouchableOpacity>
+            ),
+          },
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'pink',
-    borderRadius: 3,
-    padding: 32,
-    width: 100,
-    marginTop: 64,
-    marginBottom: 64,
-  },
-
   centerText: {
     flex: 1,
     fontSize: 18,
@@ -124,7 +120,7 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('awesome', () => ScanScreen);
+AppRegistry.registerComponent('default', () => ScanScreen);
 ```
 
 Screenshot of the above:  
