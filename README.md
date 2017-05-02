@@ -127,9 +127,10 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('awesome', () => ScanScreen);
 ```
 
-Screenshot of the above from the device:  
+Screenshot of the above:  
 
-<img src="https://dl.dropboxusercontent.com/u/81686964/react-native-qrcode-scanner.jpg" width="375" border="1"/>
+![screenshot 2017-05-02 15 06 33](https://cloud.githubusercontent.com/assets/5963656/25634528/fae4290a-2f48-11e7-899d-4c91ea079678.png)
+
 
 Please open an issue if something doesn't work or is not clear enough.
 
