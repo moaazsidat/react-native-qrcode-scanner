@@ -34,7 +34,8 @@ With Android 7 and higher you need to add the "Vibration" permission to your And
 <uses-permission android:name="android.permission.VIBRATE"/>
 ```
 
-- [react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to install. To install, run the following commands:
+#### react-native-camera
+[react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to add to your project. To install, run the following commands:
   1. `npm install react-native-camera@https://github.com/lwansbrough/react-native-camera.git --save`
   2. `react-native link react-native-camera`
 
