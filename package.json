@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-scanner",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
