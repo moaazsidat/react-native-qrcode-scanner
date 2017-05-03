@@ -177,6 +177,21 @@ propType: `oneOfType([
 
 Use this to render any additional content at the bottom of the camera view.
 
+#### `cameraStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the camera window rendered.
+
+#### `topViewStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the `<View>` that contains the `topContent` prop.
+
+#### `bottomViewStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
+
 <!-- #### `showMarker` -->
 
 <!-- #### `customMarker` -->
