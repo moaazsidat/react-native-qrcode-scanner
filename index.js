@@ -133,10 +133,7 @@ export default class QRCodeScanner extends Component {
 
   render() {
     return (
-      <View style={{
-          flex: 1,
-          marginTop: 64,
-        }}>
+      <View style={styles.mainContainer}>
         <View style={[styles.infoView, this.props.topViewStyle]}>
           {this._renderTopContent()}
         </View>
@@ -150,6 +147,9 @@ export default class QRCodeScanner extends Component {
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1
+  },
   infoView: {
     flex: 2,
     justifyContent: 'center',
