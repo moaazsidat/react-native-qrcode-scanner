@@ -201,6 +201,7 @@ Use this to pass or overwrite styling for the `<View>` that contains the `bottom
 
 ## Contributors
 - [Matthew Constantine](https://github.com/matthewconstantine)
+- [James Nolan](https://github.com/j-nolan)
 
 ## License
 See [LICENSE.md](LICENSE.md)
