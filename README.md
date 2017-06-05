@@ -192,7 +192,11 @@ propType: `any`
 
 Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
 
-<!-- #### `showMarker` -->
+ #### `showMarker` 
+ propType: `boolean`
+ default: `false`
+ 
+ Use this to show marker on the camera scanning window
 
 <!-- #### `customMarker` -->
 
@@ -202,6 +206,7 @@ Use this to pass or overwrite styling for the `<View>` that contains the `bottom
 ## Contributors
 - [Matthew Constantine](https://github.com/matthewconstantine)
 - [James Nolan](https://github.com/j-nolan)
+- [Sava Vidakovic](https://github.com/sava-vidakovic)
 
 ## License
 See [LICENSE.md](LICENSE.md)
