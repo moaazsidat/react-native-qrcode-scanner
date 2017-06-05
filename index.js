@@ -101,11 +101,14 @@ export default class QRCodeScanner extends Component {
   }
 
   _renderCameraMarker() {
-    return (
+    if (this.props.showMarker) {
+      return (
       <View style={styles.rectangleContainer}>
         <View style={styles.rectangle}/>
       </View>
-    )
+      )
+    }
+    return null;
   }
 
   _renderCamera() {
