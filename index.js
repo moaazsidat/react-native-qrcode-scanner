@@ -39,6 +39,7 @@ export default class QRCodeScanner extends Component {
     reactivate: false,
     reactivateTimeout: 0,
     fadeIn: true,
+    showMarker: false,
   }
 
   constructor(props) {
