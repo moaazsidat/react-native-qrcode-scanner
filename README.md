@@ -34,7 +34,8 @@ With Android 7 and higher you need to add the "Vibration" permission to your And
 <uses-permission android:name="android.permission.VIBRATE"/>
 ```
 
-- [react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to install. To install, run the following commands:
+#### react-native-camera
+[react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to add to your project. To install, run the following commands:
   1. `npm install react-native-camera@https://github.com/lwansbrough/react-native-camera.git --save`
   2. `react-native link react-native-camera`
 
@@ -47,8 +48,9 @@ react-native link react-native-qrcode-scanner
 ```
 
 ## Usage
-To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag.
-(more examples coming soon)
+To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
+
+Here is an example of basic usage:
 ```js
 'use strict';
 
@@ -60,7 +62,6 @@ import {
   Text,
   NavigatorIOS,
   TouchableOpacity,
-  TouchableHighlight,
   Linking,
 } from 'react-native';
 
@@ -68,7 +69,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
   onSuccess(e) {
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err))
+    Linking.openURL(e.data).catch(err => console.error('An error occured', err));
   }
 
   render() {
@@ -79,29 +80,25 @@ class ScanScreen extends Component {
           title: 'Scan Code',
           passProps: {
             onRead: this.onSuccess.bind(this),
-            topContent: <Text style={styles.centerText}>Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.</Text>,
-            bottomContent: <TouchableOpacity style={styles.buttonTouchable}><Text style={styles.buttonText}>OK. Got it!</Text></TouchableOpacity>
-          }
+            topContent: (
+              <Text style={styles.centerText}>
+                Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
+              </Text>
+            ),
+            bottomContent: (
+              <TouchableOpacity style={styles.buttonTouchable}>
+                <Text style={styles.buttonText}>OK. Got it!</Text>
+              </TouchableOpacity>
+            ),
+          },
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'pink',
-    borderRadius: 3,
-    padding: 32,
-    width: 100,
-    marginTop: 64,
-    marginBottom: 64,
-  },
-
   centerText: {
     flex: 1,
     fontSize: 18,
@@ -124,12 +121,13 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('awesome', () => ScanScreen);
+AppRegistry.registerComponent('default', () => ScanScreen);
 ```
 
-Screenshot of the above from the device:  
+Screenshot of the above:  
 
-<img src="https://dl.dropboxusercontent.com/u/81686964/react-native-qrcode-scanner.jpg" width="375" border="1"/>
+![screenshot 2017-05-02 15 06 33](https://cloud.githubusercontent.com/assets/5963656/25634528/fae4290a-2f48-11e7-899d-4c91ea079678.png)
+
 
 Please open an issue if something doesn't work or is not clear enough.
 
@@ -179,7 +177,26 @@ propType: `oneOfType([
 
 Use this to render any additional content at the bottom of the camera view.
 
-<!-- #### `showMarker` -->
+#### `cameraStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the camera window rendered.
+
+#### `topViewStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the `<View>` that contains the `topContent` prop.
+
+#### `bottomViewStyle`
+propType: `any`
+
+Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
+
+ #### `showMarker` 
+ propType: `boolean`
+ default: `false`
+ 
+ Use this to show marker on the camera scanning window
 
 <!-- #### `customMarker` -->
 
@@ -188,6 +205,8 @@ Use this to render any additional content at the bottom of the camera view.
 
 ## Contributors
 - [Matthew Constantine](https://github.com/matthewconstantine)
+- [James Nolan](https://github.com/j-nolan)
+- [Sava Vidakovic](https://github.com/sava-vidakovic)
 
 ## License
 See [LICENSE.md](LICENSE.md)
