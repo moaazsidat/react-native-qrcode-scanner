@@ -25,7 +25,7 @@
     "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
   },
   "dependencies": {
-    "react-native-camera": "github:lwansbrough/react-native-camera"
+    "react-native-camera": "^0.9.4"
   },
   "homepage": "https://github.com/moaazsidat/react-native-qrcode-scanner#readme"
 }
