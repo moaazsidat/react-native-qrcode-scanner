@@ -6,8 +6,7 @@ A QR code scanner component for React Native built on top of [react-native-camer
 
 Please note, this will also function as a generic barcode scanner by the virtue of the above module supporting barcode scanning, however, this module was initially built as a QR code scanner.
 
-I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup.
-
+I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup. 
 
 ## Getting started
 
@@ -208,6 +207,7 @@ Use this to pass or overwrite styling for the `<View>` that contains the `bottom
 - [James Nolan](https://github.com/j-nolan)
 - [Sava Vidakovic](https://github.com/sava-vidakovic)
 - [Maximo Dominguez](https://github.com/mamodom)
+- [Michael J Gallagher](https://github.com/mjgallag)
 
 ## License
 See [LICENSE.md](LICENSE.md)
