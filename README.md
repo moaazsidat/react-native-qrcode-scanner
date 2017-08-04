@@ -36,7 +36,7 @@ With Android 7 and higher you need to add the "Vibration" permission to your And
 
 #### react-native-camera
 [react-native-camera](https://github.com/lwansbrough/react-native-camera) is a dependency for this package that you'll need to add to your project. To install, run the following commands:
-  1. `npm install react-native-camera@https://github.com/lwansbrough/react-native-camera.git --save`
+  1. `npm install react-native-camera --save`
   2. `react-native link react-native-camera`
 
 ### To install and start using react-native-qrcode-scanner:
