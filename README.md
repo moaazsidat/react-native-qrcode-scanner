@@ -197,7 +197,10 @@ Use this to pass or overwrite styling for the `<View>` that contains the `bottom
  
  Use this to show marker on the camera scanning window
 
-<!-- #### `customMarker` -->
+#### `customMarker`
+propType: `element`
+
+Pass a RN element/component to use it as a custom marker.
 
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
