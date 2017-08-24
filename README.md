@@ -208,6 +208,7 @@ Use this to pass or overwrite styling for the `<View>` that contains the `bottom
 - [Sava Vidakovic](https://github.com/sava-vidakovic)
 - [Maximo Dominguez](https://github.com/mamodom)
 - [Michael J Gallagher](https://github.com/mjgallag)
+- [EzeRangel](https://github.com/EzeRangel)
 
 ## License
 See [LICENSE.md](LICENSE.md)
