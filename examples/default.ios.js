@@ -19,7 +19,9 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
   onSuccess(e) {
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err));
+    Linking
+      .openURL(e.data)
+      .catch(err => console.error('An error occured', err));
   }
 
   render() {
@@ -40,6 +42,9 @@ class ScanScreen extends Component {
                 <Text style={styles.buttonText}>OK. Got it!</Text>
               </TouchableOpacity>
             ),
+            containerStyle: {
+              marginTop: 64
+            },
           },
         }}
         style={{ flex: 1 }}
@@ -55,17 +60,14 @@ const styles = StyleSheet.create({
     padding: 32,
     color: '#777',
   },
-
   textBold: {
     fontWeight: '500',
     color: '#000',
   },
-
   buttonText: {
     fontSize: 21,
     color: 'rgb(0,122,255)',
   },
-
   buttonTouchable: {
     padding: 16,
   },
