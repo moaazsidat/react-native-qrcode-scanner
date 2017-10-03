@@ -137,7 +137,7 @@ export default class QRCodeScanner extends Component {
 
   render() {
     return (
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, this.props.containerStyle]}>
         <View style={[styles.infoView, this.props.topViewStyle]}>
           {this._renderTopContent()}
         </View>
