@@ -176,6 +176,11 @@ propType: `oneOfType([
 
 Use this to render any additional content at the bottom of the camera view.
 
+#### `containerStyle`
+propType: `any`
+
+Use this to pass styling for the outermost container. Useful for adding margin/padding to account for navigation bar. 
+
 #### `cameraStyle`
 propType: `any`
 
