@@ -23,6 +23,7 @@ export default class QRCodeScanner extends Component {
     fadeIn: PropTypes.bool,
     showMarker: PropTypes.bool,
     customMarker: PropTypes.element,
+    containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
@@ -134,6 +135,9 @@ export default class QRCodeScanner extends Component {
     )
   }
 
+  reactivate() {
+    this._setScanning(false);
+  }
 
   render() {
     return (
