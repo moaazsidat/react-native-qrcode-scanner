@@ -36,7 +36,7 @@ export default class QRCodeScanner extends Component {
       PropTypes.element,
       PropTypes.string,
     ]),
-    emptyView: PropTypes.element,
+    notAuthorizedView: PropTypes.element,
   }
 
   static defaultProps = {
@@ -45,7 +45,9 @@ export default class QRCodeScanner extends Component {
     reactivateTimeout: 0,
     fadeIn: true,
     showMarker: false,
-    emptyView: <View />,
+    notAuthorizedView: <View style={styles.notAuthorizedView}>
+      <Text style={styles.notAuthorizedText}>Not authorized</Text>
+    </View>,
   }
 
   constructor(props) {
@@ -53,7 +55,7 @@ export default class QRCodeScanner extends Component {
     this.state = {
       scanning: false,
       fadeInOpacity: new Animated.Value(0),
-      isAuthorised: false,
+      isAuthorized: false,
     }
 
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
@@ -61,12 +63,12 @@ export default class QRCodeScanner extends Component {
 
   componentWillMount() {
     if (Platform.OS === 'ios') {
-      Camera.checkVideoAuthorizationStatus().then(isAuthorised => {
-        this.setState({ isAuthorised })
+      Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
+        this.setState({ isAuthorized })
       })
     }
     else {
-      this.setState({ isAuthorised: true })
+      this.setState({ isAuthorized: true })
     }
   }
 
@@ -131,9 +133,9 @@ export default class QRCodeScanner extends Component {
   }
 
   _renderCamera() {
-    const { emptyView } = this.props
-    const { isAuthorised } = this.state
-    if (isAuthorised) {
+    const { notAuthorizedView } = this.props
+    const { isAuthorized } = this.state
+    if (isAuthorized) {
       if (this.props.fadeIn) {
         return (
           <Animated.View
@@ -154,7 +156,7 @@ export default class QRCodeScanner extends Component {
       )
     } else {
       return (
-        { emptyView }
+        { notAuthorizedView }
       )
     }
   }
@@ -212,4 +214,16 @@ const styles = StyleSheet.create({
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
   },
+
+  notAuthorizedView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  notAuthorizedText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16
+  }
 })
