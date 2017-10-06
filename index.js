@@ -10,7 +10,8 @@ import {
   Animated,
   Easing,
   View,
-  Platform
+  Text,
+  Platform,
 } from 'react-native';
 
 import Camera from 'react-native-camera'
@@ -45,9 +46,20 @@ export default class QRCodeScanner extends Component {
     reactivateTimeout: 0,
     fadeIn: true,
     showMarker: false,
-    notAuthorizedView: <View style={styles.notAuthorizedView}>
-      <Text style={styles.notAuthorizedText}>Not authorized</Text>
-    </View>,
+    notAuthorizedView: (
+      <View style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <Text style={{
+          textAlign: 'center',
+          fontSize: 16,
+        }}>
+          Camera not authorized
+        </Text>
+      </View>
+    ),
   }
 
   constructor(props) {
@@ -155,9 +167,7 @@ export default class QRCodeScanner extends Component {
         </Camera>
       )
     } else {
-      return (
-        { notAuthorizedView }
-      )
+      return notAuthorizedView
     }
   }
 
@@ -214,16 +224,4 @@ const styles = StyleSheet.create({
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
   },
-
-  notAuthorizedView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  
-  notAuthorizedText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 16
-  }
 })
