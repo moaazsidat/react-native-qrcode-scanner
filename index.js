@@ -9,7 +9,8 @@ import {
   Vibration,
   Animated,
   Easing,
-  View
+  View,
+  Platform
 } from 'react-native';
 
 import Camera from 'react-native-camera'
@@ -35,6 +36,7 @@ export default class QRCodeScanner extends Component {
       PropTypes.element,
       PropTypes.string,
     ]),
+    notAuthorizedView: PropTypes.element,
   }
 
   static defaultProps = {
@@ -43,32 +45,48 @@ export default class QRCodeScanner extends Component {
     reactivateTimeout: 0,
     fadeIn: true,
     showMarker: false,
+    notAuthorizedView: <View style={styles.notAuthorizedView}>
+      <Text style={styles.notAuthorizedText}>Not authorized</Text>
+    </View>,
   }
 
   constructor(props) {
     super(props);
     this.state = {
       scanning: false,
-      fadeInOpacity: new Animated.Value(0)
+      fadeInOpacity: new Animated.Value(0),
+      isAuthorized: false,
     }
 
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
+
+  componentWillMount() {
+    if (Platform.OS === 'ios') {
+      Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
+        this.setState({ isAuthorized })
+      })
+    }
+    else {
+      this.setState({ isAuthorized: true })
+    }
+  }
+
 
   componentDidMount() {
     if (this.props.fadeIn) {
       Animated.sequence([
         Animated.delay(1000),
         Animated.timing(
-         this.state.fadeInOpacity,
-         {
-           toValue: 1,
-           easing: Easing.inOut(Easing.quad),
-         },
+          this.state.fadeInOpacity,
+          {
+            toValue: 1,
+            easing: Easing.inOut(Easing.quad),
+          },
         )
       ]).start();
     }
-   }
+  }
 
   _setScanning(value) {
     this.setState({ scanning: value });
@@ -105,9 +123,9 @@ export default class QRCodeScanner extends Component {
         return this.props.customMarker;
       } else {
         return (
-        <View style={styles.rectangleContainer}>
-          <View style={styles.rectangle} />
-        </View>
+          <View style={styles.rectangleContainer}>
+            <View style={styles.rectangle} />
+          </View>
         );
       }
     }
@@ -115,24 +133,32 @@ export default class QRCodeScanner extends Component {
   }
 
   _renderCamera() {
-    if (this.props.fadeIn) {
+    const { notAuthorizedView } = this.props
+    const { isAuthorized } = this.state
+    if (isAuthorized) {
+      if (this.props.fadeIn) {
+        return (
+          <Animated.View
+            style={{
+              opacity: this.state.fadeInOpacity,
+              backgroundColor: 'transparent'
+            }}>
+            <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+              {this._renderCameraMarker()}
+            </Camera>
+          </Animated.View>
+        )
+      }
       return (
-        <Animated.View
-          style={{
-            opacity: this.state.fadeInOpacity,
-            backgroundColor: 'transparent'
-        }}>
-          <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
-            {this._renderCameraMarker()}
-          </Camera>
-        </Animated.View>
+        <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+          {this._renderCameraMarker()}
+        </Camera>
+      )
+    } else {
+      return (
+        { notAuthorizedView }
       )
     }
-    return (
-      <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
-        {this._renderCameraMarker()}
-      </Camera>
-    )
   }
 
   reactivate() {
@@ -188,4 +214,16 @@ const styles = StyleSheet.create({
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
   },
+
+  notAuthorizedView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  notAuthorizedText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16
+  }
 })

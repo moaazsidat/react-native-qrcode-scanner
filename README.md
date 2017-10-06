@@ -211,6 +211,11 @@ propType: `element`
 
 Pass a RN element/component to use it as a custom marker.
 
+#### `notAuthorizedView`
+propType: `element`
+
+Pass a RN element/component to use it when no permissions given to the camera (iOS only).
+
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
