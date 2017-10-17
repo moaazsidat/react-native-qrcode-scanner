@@ -134,7 +134,7 @@ Please open an issue if something doesn't work or is not clear enough.
 
 #### `reactivate()`
 
-Call this method to programmatically enabling scanning again. Use this by attaching a `ref` like so `<QRCodeScanner ref={(node) = this.scanner = node}>` and calling `this.scanner.reactivate()`
+Call this method to programmatically enabling scanning again. Use this by attaching a `ref` like so `<QRCodeScanner ref={(node) = { this.scanner = node }}>` and calling `this.scanner.reactivate()`
 
 ## Props
 
