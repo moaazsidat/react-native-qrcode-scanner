@@ -27,6 +27,7 @@ export default class QRCodeScanner extends Component {
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
+    cameraType: PropTypes.string,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
     topContent: PropTypes.oneOfType([
@@ -46,6 +47,7 @@ export default class QRCodeScanner extends Component {
     reactivateTimeout: 0,
     fadeIn: true,
     showMarker: false,
+    cameraType: "back",
     notAuthorizedView: (
       <View style={{
         flex: 1,
@@ -155,7 +157,11 @@ export default class QRCodeScanner extends Component {
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent'
             }}>
-            <Camera style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+            <Camera 
+              style={[styles.camera, this.props.cameraStyle]} 
+              onBarCodeRead={this._handleBarCodeRead.bind(this)}
+              type={this.props.cameraType}
+            >
               {this._renderCameraMarker()}
             </Camera>
           </Animated.View>
