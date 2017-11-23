@@ -134,7 +134,7 @@ Please open an issue if something doesn't work or is not clear enough.
 
 #### `reactivate()`
 
-Call this method to programmatically enabling scanning again. Use this by attaching a `ref` like so `<QRCodeScanner ref={(node) = { this.scanner = node }}>` and calling `this.scanner.reactivate()`
+Call this method to programmatically enabling scanning again. Use this by attaching a `ref` like so `<QRCodeScanner ref={(node) => { this.scanner = node }}>` and calling `this.scanner.reactivate()`
 
 ## Props
 
@@ -200,11 +200,11 @@ propType: `any`
 
 Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
 
- #### `showMarker` 
- propType: `boolean`
- default: `false`
- 
- Use this to show marker on the camera scanning window
+#### `showMarker` 
+propType: `boolean`
+default: `false`
+
+Use this to show marker on the camera scanning window
 
 #### `customMarker`
 propType: `element`
@@ -215,6 +215,12 @@ Pass a RN element/component to use it as a custom marker.
 propType: `element`
 
 Pass a RN element/component to use it when no permissions given to the camera (iOS only).
+
+#### `cameraType`
+propType: `oneOf(['front', 'back'])`
+default: `'back'`
+
+Use this to control which camera to use for scanning QR codes, defaults to rear camera. 
 
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
