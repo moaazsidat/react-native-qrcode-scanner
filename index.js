@@ -28,7 +28,6 @@ export default class QRCodeScanner extends Component {
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
-    cameraType: PropTypes.string,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
     topContent: PropTypes.oneOfType([
