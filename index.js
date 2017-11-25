@@ -24,10 +24,10 @@ export default class QRCodeScanner extends Component {
     reactivateTimeout: PropTypes.number,
     fadeIn: PropTypes.bool,
     showMarker: PropTypes.bool,
+    cameraType: PropTypes.oneOf(['front','back']),
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
-    cameraType: PropTypes.string,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
     topContent: PropTypes.oneOfType([
