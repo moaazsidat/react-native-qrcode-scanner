@@ -12,6 +12,7 @@ import {
   View,
   Text,
   Platform,
+  PermissionsAndroid,
 } from 'react-native';
 
 import Camera from 'react-native-camera'
@@ -39,6 +40,8 @@ export default class QRCodeScanner extends Component {
       PropTypes.string,
     ]),
     notAuthorizedView: PropTypes.element,
+    permissionDialogTitle: PropTypes.string,
+    permissionDialogMessage: PropTypes.string,
   }
 
   static defaultProps = {
@@ -75,13 +78,19 @@ export default class QRCodeScanner extends Component {
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     if (Platform.OS === 'ios') {
       Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
         this.setState({ isAuthorized })
       })
-    }
-    else {
+    } else if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
+          'title': this.props.permissionDialogTitle, 
+          'message':  this.props.permissionDialogMessage, 
+        }
+      ) 
+      this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED })
+    } else {
       this.setState({ isAuthorized: true })
     }
   }
