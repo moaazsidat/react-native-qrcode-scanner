@@ -78,18 +78,19 @@ export default class QRCodeScanner extends Component {
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
 
-  async componentWillMount() {
+  componentWillMount() {
     if (Platform.OS === 'ios') {
       Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
         this.setState({ isAuthorized })
       })
     } else if (Platform.OS === 'android') {
-      const granted = await PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
+      PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
           'title': this.props.permissionDialogTitle, 
           'message':  this.props.permissionDialogMessage, 
         }
-      ) 
-      this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED })
+      ).then(function(granted) {
+        this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED })
+      })
     } else {
       this.setState({ isAuthorized: true })
     }
