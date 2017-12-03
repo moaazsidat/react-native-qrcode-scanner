@@ -65,6 +65,8 @@ export default class QRCodeScanner extends Component {
         </Text>
       </View>
     ),
+    permissionDialogTitle: "Info",
+    permissionDialogMessage: "Need camera permission",
   }
 
   constructor(props) {
