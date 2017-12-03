@@ -224,11 +224,13 @@ Use this to control which camera to use for scanning QR codes, defaults to rear 
 
 #### `permissionDialogTitle`
 propType: `string`
+default: `'Info'`
 
 Use this to setting permission dialog title (Android only).
 
 #### `permissionDialogMessage`
 propType: `string`
+default: `'Need camera permission'`
 
 Use this to setting permission dialog message (Android only).
 
