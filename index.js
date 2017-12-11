@@ -65,6 +65,20 @@ export default class QRCodeScanner extends Component {
         </Text>
       </View>
     ),
+    pendingAuthorizationView: (
+      <View style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <Text style={{
+          textAlign: 'center',
+          fontSize: 16,
+        }}>
+          ...
+        </Text>
+      </View>
+    ),
     permissionDialogTitle: "Info",
     permissionDialogMessage: "Need camera permission",
   }
@@ -75,6 +89,7 @@ export default class QRCodeScanner extends Component {
       scanning: false,
       fadeInOpacity: new Animated.Value(0),
       isAuthorized: false,
+      isAuthorizationChecked: false,
     }
 
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
@@ -83,7 +98,7 @@ export default class QRCodeScanner extends Component {
   componentWillMount() {
     if (Platform.OS === 'ios') {
       Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
-        this.setState({ isAuthorized })
+        this.setState({ isAuthorized, isAuthorizationChecked: true })
       })
     } else if (Platform.OS === 'android') {
       PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
@@ -91,10 +106,10 @@ export default class QRCodeScanner extends Component {
           'message':  this.props.permissionDialogMessage, 
         }
       ).then((granted) => {
-        this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED })
+        this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED, isAuthorizationChecked: true })
       })
     } else {
-      this.setState({ isAuthorized: true })
+      this.setState({ isAuthorized: true, isAuthorizationChecked: true })
     }
   }
 
@@ -159,8 +174,8 @@ export default class QRCodeScanner extends Component {
   }
 
   _renderCamera() {
-    const { notAuthorizedView, cameraType } = this.props
-    const { isAuthorized } = this.state
+    const { notAuthorizedView, pendingAuthorizationView, cameraType } = this.props
+    const { isAuthorized, isAuthorizationChecked } = this.state
     if (isAuthorized) {
       if (this.props.fadeIn) {
         return (
@@ -184,6 +199,8 @@ export default class QRCodeScanner extends Component {
           {this._renderCameraMarker()}
         </Camera>
       )
+    } else if (!isAuthorizationChecked) {
+      return pendingAuthorizationView
     } else {
       return notAuthorizedView
     }
