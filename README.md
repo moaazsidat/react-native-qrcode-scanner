@@ -222,6 +222,12 @@ default: `'back'`
 
 Use this to control which camera to use for scanning QR codes, defaults to rear camera. 
 
+#### `checkAndroid6Permissions`
+propType: `bool`
+default: `false`
+
+Use this to enable permission checking on Android 6
+
 #### `permissionDialogTitle`
 propType: `string`
 default: `'Info'`

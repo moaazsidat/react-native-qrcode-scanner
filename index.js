@@ -42,6 +42,7 @@ export default class QRCodeScanner extends Component {
     notAuthorizedView: PropTypes.element,
     permissionDialogTitle: PropTypes.string,
     permissionDialogMessage: PropTypes.string,
+    checkAndroid6Permissions: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -81,6 +82,7 @@ export default class QRCodeScanner extends Component {
     ),
     permissionDialogTitle: "Info",
     permissionDialogMessage: "Need camera permission",
+    checkAndroid6Permissions: false,
   }
 
   constructor(props) {
@@ -100,7 +102,7 @@ export default class QRCodeScanner extends Component {
       Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
         this.setState({ isAuthorized, isAuthorizationChecked: true })
       })
-    } else if (Platform.OS === 'android') {
+    } else if (Platform.OS === 'android' && this.props.checkAndroid6Permissions) {
       PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
           'title': this.props.permissionDialogTitle, 
           'message':  this.props.permissionDialogMessage, 
