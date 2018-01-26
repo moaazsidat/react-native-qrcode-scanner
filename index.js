@@ -21,6 +21,7 @@ import Camera from 'react-native-camera'
 export default class QRCodeScanner extends Component {
   static propTypes = {
     onRead: PropTypes.func.isRequired,
+    vibrate: PropTypes.bool,
     reactivate: PropTypes.bool,
     reactivateTimeout: PropTypes.number,
     fadeIn: PropTypes.bool,
@@ -48,6 +49,7 @@ export default class QRCodeScanner extends Component {
   static defaultProps = {
     onRead: () => (console.log('QR code scanned!')),
     reactivate: false,
+    vibrate: true,
     reactivateTimeout: 0,
     fadeIn: true,
     showMarker: false,
@@ -92,6 +94,7 @@ export default class QRCodeScanner extends Component {
       fadeInOpacity: new Animated.Value(0),
       isAuthorized: false,
       isAuthorizationChecked: false,
+      disablingByUser: false,
     }
 
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
@@ -103,9 +106,9 @@ export default class QRCodeScanner extends Component {
         this.setState({ isAuthorized, isAuthorizationChecked: true })
       })
     } else if (Platform.OS === 'android' && this.props.checkAndroid6Permissions) {
-      PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
-          'title': this.props.permissionDialogTitle, 
-          'message':  this.props.permissionDialogMessage, 
+      PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, {
+          'title': this.props.permissionDialogTitle,
+          'message':  this.props.permissionDialogMessage,
         }
       ).then((granted) => {
         this.setState({ isAuthorized: granted ===  PermissionsAndroid.RESULTS.GRANTED, isAuthorizationChecked: true })
@@ -131,13 +134,23 @@ export default class QRCodeScanner extends Component {
     }
   }
 
+  disable() {
+    this.setState({ disablingByUser: true });
+  }
+
+  enable() {
+    this.setState({ disablingByUser: false });
+  }
+
   _setScanning(value) {
     this.setState({ scanning: value });
   }
 
   _handleBarCodeRead(e) {
-    if (!this.state.scanning) {
-      Vibration.vibrate();
+    if (!this.state.scanning && !this.state.disablingByUser) {
+      if (this.props.vibrate) {
+        Vibration.vibrate();
+      }
       this._setScanning(true);
       this.props.onRead(e)
       if (this.props.reactivate) {
@@ -186,8 +199,8 @@ export default class QRCodeScanner extends Component {
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent'
             }}>
-            <Camera 
-              style={[styles.camera, this.props.cameraStyle]} 
+            <Camera
+              style={[styles.camera, this.props.cameraStyle]}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
             >
