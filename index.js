@@ -134,12 +134,12 @@ export default class QRCodeScanner extends Component {
     }
   }
 
-  disableScanning() {
-      this.state.disablingByUser = true;
+  disable() {
+    this.setState({ disablingByUser: true });
   }
 
-  enableScanning() {
-    this.state.disablingByUser = false;
+  enable() {
+    this.setState({ disablingByUser: false });
   }
 
   _setScanning(value) {
