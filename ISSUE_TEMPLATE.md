@@ -7,4 +7,4 @@
 <!--- Put down a code snippet, link or repo that reproduces the issue  -->
 
 ## Build details?
-<!--- What OS is the issue arising for? What version of react-native-qrcode-scanner  -->
+<!--- What OS is the issue arising for? What version of react-native-qrcode-scanner are you using?  -->
