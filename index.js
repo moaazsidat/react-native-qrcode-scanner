@@ -11,7 +11,8 @@ import {
   Easing,
   View,
   Text,
-  Platform
+  Platform,
+  PermissionsAndroid
 } from 'react-native';
 
 import Permissions from 'react-native-permissions'
