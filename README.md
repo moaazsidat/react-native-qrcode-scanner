@@ -256,6 +256,7 @@ Use this to setting permission dialog message (Android only).
 - [Maximo Dominguez](https://github.com/mamodom)
 - [Michael J Gallagher](https://github.com/mjgallag)
 - [EzeRangel](https://github.com/EzeRangel)
+- [Alex Gurr](https://github.com/alexgurr)
 
 ## License
 See [LICENSE.md](LICENSE.md)
