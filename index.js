@@ -12,11 +12,14 @@ import {
   View,
   Text,
   Platform,
-  PermissionsAndroid,
+  PermissionsAndroid
 } from 'react-native';
 
-import Camera from 'react-native-camera'
+import Permissions from 'react-native-permissions'
+import { RNCamera as Camera } from 'react-native-camera'
 
+const PERMISSION_AUTHORIZED = 'authorized';
+const CAMERA_PERMISSION = 'camera';
 
 export default class QRCodeScanner extends Component {
   static propTypes = {
@@ -99,18 +102,24 @@ export default class QRCodeScanner extends Component {
 
   componentWillMount() {
     if (Platform.OS === 'ios') {
-      Camera.checkVideoAuthorizationStatus().then(isAuthorized => {
-        this.setState({ isAuthorized, isAuthorizationChecked: true })
-      })
+      Permissions.check(CAMERA_PERMISSION).then(response => {
+        this.setState({
+          isAuthorized: response === PERMISSION_AUTHORIZED,
+          isAuthorizationChecked: true
+        });
+      });
     } else if (Platform.OS === 'android' && this.props.checkAndroid6Permissions) {
-      PermissionsAndroid.request( PermissionsAndroid.PERMISSIONS.CAMERA, { 
-          'title': this.props.permissionDialogTitle, 
-          'message':  this.props.permissionDialogMessage, 
-        }
-      ).then((granted) => {
-        const isAuthorized = Platform.Version >= 23 ? granted === PermissionsAndroid.RESULTS.GRANTED : granted === true;
-        this.setState({ isAuthorized, isAuthorizationChecked: true })
+      PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
+          'title': this.props.permissionDialogTitle,
+          'message':  this.props.permissionDialogMessage,
       })
+        .then((granted) => {
+          const isAuthorized = Platform.Version >= 23 ?
+            granted === PermissionsAndroid.RESULTS.GRANTED :
+            granted === true;
+
+          this.setState({ isAuthorized, isAuthorizationChecked: true })
+        })
     } else {
       this.setState({ isAuthorized: true, isAuthorizationChecked: true })
     }
@@ -198,7 +207,11 @@ export default class QRCodeScanner extends Component {
         )
       }
       return (
-        <Camera type={cameraType} style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+        <Camera
+          type={cameraType}
+          style={[styles.camera, this.props.cameraStyle]}
+          onBarCodeRead={this._handleBarCodeRead.bind(this)}
+        >
           {this._renderCameraMarker()}
         </Camera>
       )
