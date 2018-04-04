@@ -1,7 +1,3 @@
-/*
- * Default Android example
- */
-
 'use strict';
 
 import React, { Component } from 'react';
@@ -10,7 +6,6 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  Navigator,
   TouchableOpacity,
   Linking,
 } from 'react-native';
@@ -28,16 +23,16 @@ class ScanScreen extends Component {
     return (
       <QRCodeScanner
         onRead={this.onSuccess.bind(this)}
-        topContent={(
+        topContent={
           <Text style={styles.centerText}>
             Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
           </Text>
-        )}
-        bottomContent={(
+        }
+        bottomContent={
           <TouchableOpacity style={styles.buttonTouchable}>
             <Text style={styles.buttonText}>OK. Got it!</Text>
           </TouchableOpacity>
-        )}
+        }
       />
     );
   }
@@ -50,20 +45,17 @@ const styles = StyleSheet.create({
     padding: 32,
     color: '#777',
   },
-
   textBold: {
     fontWeight: '500',
     color: '#000',
   },
-
   buttonText: {
     fontSize: 21,
     color: 'rgb(0,122,255)',
   },
-
   buttonTouchable: {
     padding: 16,
   },
 });
 
-AppRegistry.registerComponent('defaultAndroid', () => ScanScreen);
+AppRegistry.registerComponent('default', () => ScanScreen);
