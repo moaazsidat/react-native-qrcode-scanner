@@ -32,6 +32,7 @@ export default class QRCodeScanner extends Component {
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
+    markerStyle: PropTypes.any,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
     topContent: PropTypes.oneOfType([
@@ -177,7 +178,7 @@ export default class QRCodeScanner extends Component {
       } else {
         return (
           <View style={styles.rectangleContainer}>
-            <View style={styles.rectangle} />
+            <View style={[styles.rectangle, this.props.markerStyle]} />
           </View>
         );
       }
@@ -196,8 +197,8 @@ export default class QRCodeScanner extends Component {
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent'
             }}>
-            <Camera 
-              style={[styles.camera, this.props.cameraStyle]} 
+            <Camera
+              style={[styles.camera, this.props.cameraStyle]}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
             >
