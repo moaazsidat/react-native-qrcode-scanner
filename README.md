@@ -248,6 +248,7 @@ Use this to setting permission dialog message (Android only).
 - [Michael J Gallagher](https://github.com/mjgallag)
 - [EzeRangel](https://github.com/EzeRangel)
 - [Alex Gurr](https://github.com/alexgurr)
+- [Krister Kari](https://github.com/kristerkari)
 
 ## License
 See [LICENSE.md](LICENSE.md)
