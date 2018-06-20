@@ -84,6 +84,7 @@ class ScanScreen extends Component {
     return (
       <QRCodeScanner
         onRead={this.onSuccess.bind(this)}
+        flashMode={QRCodeScanner.Constants.FlashMode.torch}
         topContent={
           <Text style={styles.centerText}>
             Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
@@ -162,6 +163,19 @@ propType: `number`
 default: `0`
 
 Use this to configure how long it should take before the `QRCodeScanner` should reactivate.
+
+#### `flashMode`
+propType: `QRCodeScanner.Constants.FlashMode`
+default: `QRCodeScanner.Constants.FlashMode.auto`
+
+**Flash modes**
+
+FYI: [react-native-camera/flashMode](https://github.com/react-native-community/react-native-camera/blob/master/docs/RNCamera.md#flashmode)
+
+* ```QRCodeScanner.Constants.FlashMode.off``` turns it off.
+* ```QRCodeScanner.Constants.FlashMode.on``` means camera will use flash in all photos taken.
+* ```QRCodeScanner.Constants.FlashMode.auto``` leaves your phone to decide when to use flash when taking photos, based on the lightning conditions that the camera observes.
+* ```QRCodeScanner.Constants.FlashMode.torch``` turns on torch mode, meaning the flash light will be turned on all the time (even before taking photo) just like a flashlight.
 
 #### `topContent`
 propType: `oneOfType([
