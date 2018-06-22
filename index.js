@@ -41,6 +41,7 @@ export default class QRCodeScanner extends Component {
     permissionDialogTitle: PropTypes.string,
     permissionDialogMessage: PropTypes.string,
     checkAndroid6Permissions: PropTypes.bool,
+    cameraProps: PropTypes.object
   };
 
   static defaultProps = {
@@ -221,6 +222,7 @@ export default class QRCodeScanner extends Component {
               style={[styles.camera, this.props.cameraStyle]}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
+              {...this.props.cameraProps}
             >
               {this._renderCameraMarker()}
             </Camera>
@@ -232,6 +234,7 @@ export default class QRCodeScanner extends Component {
           type={cameraType}
           style={[styles.camera, this.props.cameraStyle]}
           onBarCodeRead={this._handleBarCodeRead.bind(this)}
+          {...this.props.cameraProps}
         >
           {this._renderCameraMarker()}
         </Camera>
