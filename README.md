@@ -150,6 +150,12 @@ default: `true`
 When set to `true` this ensures that the camera view fades in after the initial load up instead of being rendered immediately.
 Set this to false to prevent the animated fade in of the camera view.
 
+#### `vibrate`
+propType: `bool`
+default: `true`
+
+Use this to disable vibration.
+
 #### `reactivate`
 propType: `bool`
 default: `false`

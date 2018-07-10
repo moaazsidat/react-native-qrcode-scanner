@@ -27,6 +27,7 @@ export default class QRCodeScanner extends Component {
     reactivate: PropTypes.bool,
     reactivateTimeout: PropTypes.number,
     fadeIn: PropTypes.bool,
+    vibrate: PropTypes.bool,
     showMarker: PropTypes.bool,
     cameraType: PropTypes.oneOf(['front','back']),
     customMarker: PropTypes.element,
@@ -53,6 +54,7 @@ export default class QRCodeScanner extends Component {
     reactivate: false,
     reactivateTimeout: 0,
     fadeIn: true,
+    vibrate: true,
     showMarker: false,
     cameraType: 'back',
     notAuthorizedView: (
@@ -147,7 +149,9 @@ export default class QRCodeScanner extends Component {
 
   _handleBarCodeRead(e) {
     if (!this.state.scanning) {
-      Vibration.vibrate();
+      if (this.props.vibrate) {
+        Vibration.vibrate();
+      }
       this._setScanning(true);
       this.props.onRead(e)
       if (this.props.reactivate) {
