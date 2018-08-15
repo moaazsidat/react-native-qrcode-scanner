@@ -45,5 +45,9 @@
       "prettier --single-quote --trailing-comma es5 --tab-width 2 --write",
       "git add"
     ]
-  }
+  },
+  "files": [
+    "index.js",
+    "node_modules/"
+  ]
 }

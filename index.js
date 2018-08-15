@@ -211,7 +211,6 @@ export default class QRCodeScanner extends Component {
       notAuthorizedView,
       fadeIn,
       cameraStyle,
-      cameraProps,
       pendingAuthorizationView,
       cameraType,
     } = this.props;
@@ -222,7 +221,6 @@ export default class QRCodeScanner extends Component {
         style={[styles.camera, cameraStyle]}
         onBarCodeRead={this._handleBarCodeRead}
         type={cameraType}
-        {...cameraProps}
       >
         {this._renderCameraMarker()}
       </Camera>
