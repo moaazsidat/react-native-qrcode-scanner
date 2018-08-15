@@ -92,18 +92,13 @@ export default class QRCodeScanner extends Component {
     checkAndroid6Permissions: false,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      scanning: false,
-      fadeInOpacity: new Animated.Value(0),
-      isAuthorized: false,
-      isAuthorizationChecked: false,
-      disableVibrationByUser: false,
-    };
-
-    this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
-  }
+  state = {
+    scanning: false,
+    fadeInOpacity: new Animated.Value(0),
+    isAuthorized: false,
+    isAuthorizationChecked: false,
+    disableVibrationByUser: false,
+  };
 
   componentWillMount() {
     if (Platform.OS === 'ios') {
@@ -134,15 +129,20 @@ export default class QRCodeScanner extends Component {
   }
 
   componentDidMount() {
-    if (this.props.fadeIn) {
-      Animated.sequence([
-        Animated.delay(1000),
-        Animated.timing(this.state.fadeInOpacity, {
-          toValue: 1,
-          easing: Easing.inOut(Easing.quad),
-        }),
-      ]).start();
+    const { fadeIn } = this.props;
+    const { fadeInOpacity } = this.state;
+
+    if (!fadeIn) {
+      return;
     }
+
+    Animated.sequence([
+      Animated.delay(1000),
+      Animated.timing(fadeInOpacity, {
+        toValue: 1,
+        easing: Easing.inOut(Easing.quad),
+      }),
+    ]).start();
   }
 
   disable() {
@@ -156,91 +156,98 @@ export default class QRCodeScanner extends Component {
     this.setState({ scanning: value });
   }
 
-  _handleBarCodeRead(e) {
-    if (!this.state.scanning && !this.state.disableVibrationByUser) {
-      if (this.props.vibrate) {
-        Vibration.vibrate();
-      }
-      this._setScanning(true);
-      this.props.onRead(e);
-      if (this.props.reactivate) {
-        setTimeout(
-          () => this._setScanning(false),
-          this.props.reactivateTimeout
-        );
-      }
+  _handleBarCodeRead = e => {
+    const { vibrate, onRead, reactivate, reactivateTimeout } = this.props;
+    const { scanning } = this.state;
+
+    if (scanning) {
+      return;
     }
-  }
+
+    if (vibrate) {
+      Vibration.vibrate();
+    }
+
+    this._setScanning(true);
+    onRead(e);
+
+    if (reactivate) {
+      setTimeout(() => this._setScanning(false), reactivateTimeout);
+    }
+  };
 
   _renderTopContent() {
-    if (this.props.topContent) {
-      return this.props.topContent;
-    }
-    return null;
+    const { topContent } = this.props;
+
+    return topContent ? topContent : null;
   }
 
   _renderBottomContent() {
-    if (this.props.bottomContent) {
-      return this.props.bottomContent;
-    }
-    return null;
+    const { bottomContent } = this.props;
+
+    return bottomContent ? bottomContent : null;
   }
 
   _renderCameraMarker() {
-    if (this.props.showMarker) {
-      if (this.props.customMarker) {
-        return this.props.customMarker;
-      } else {
-        return (
-          <View style={styles.rectangleContainer}>
-            <View style={styles.rectangle} />
-          </View>
-        );
-      }
+    const { showMarker, customMarker } = this.props;
+
+    if (!showMarker) {
+      return null;
     }
-    return null;
+
+    if (customMarker) {
+      return customMarker;
+    }
+
+    return (
+      <View style={styles.rectangleContainer}>
+        <View style={styles.rectangle} />
+      </View>
+    );
   }
 
   _renderCamera() {
     const {
       notAuthorizedView,
+      fadeIn,
+      cameraStyle,
+      cameraProps,
       pendingAuthorizationView,
       cameraType,
     } = this.props;
-    const { isAuthorized, isAuthorizationChecked } = this.state;
+    const { isAuthorized, isAuthorizationChecked, fadeInOpacity } = this.state;
+
+    const CameraWithMarker = (
+      <Camera
+        style={[styles.camera, cameraStyle]}
+        onBarCodeRead={this._handleBarCodeRead}
+        type={cameraType}
+        {...cameraProps}
+      >
+        {this._renderCameraMarker()}
+      </Camera>
+    );
+
     if (isAuthorized) {
-      if (this.props.fadeIn) {
-        return (
-          <Animated.View
-            style={{
-              opacity: this.state.fadeInOpacity,
-              backgroundColor: 'transparent',
-            }}
-          >
-            <Camera
-              style={[styles.camera, this.props.cameraStyle]}
-              onBarCodeRead={this._handleBarCodeRead.bind(this)}
-              type={this.props.cameraType}
-            >
-              {this._renderCameraMarker()}
-            </Camera>
-          </Animated.View>
-        );
+      if (!fadeIn) {
+        return <CameraWithMarker />;
       }
+
       return (
-        <Camera
-          type={cameraType}
-          style={[styles.camera, this.props.cameraStyle]}
-          onBarCodeRead={this._handleBarCodeRead.bind(this)}
+        <Animated.View
+          style={{
+            opacity: fadeInOpacity,
+            backgroundColor: 'transparent',
+          }}
         >
-          {this._renderCameraMarker()}
-        </Camera>
+          <CameraWithMarker />
+        </Animated.View>
       );
     } else if (!isAuthorizationChecked) {
       return pendingAuthorizationView;
-    } else {
-      return notAuthorizedView;
     }
+
+    return notAuthorizedView;
   }
 
   reactivate() {
@@ -278,6 +285,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
+    // It it supposed for the height to be equal to the width?
     height: Dimensions.get('window').width,
     width: Dimensions.get('window').width,
   },
