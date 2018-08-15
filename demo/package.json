@@ -18,7 +18,8 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
-    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-camera": "^1.2.0",
+    "react-native-permissions": "^1.1.1",
     "react-native-qrcode-scanner": "0.0.12"
   }
 }
