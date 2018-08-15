@@ -283,7 +283,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    // It it supposed for the height to be equal to the width?
     height: Dimensions.get('window').width,
     width: Dimensions.get('window').width,
   },
