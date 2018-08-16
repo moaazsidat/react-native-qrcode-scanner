@@ -178,7 +178,7 @@ export default class QRCodeScanner extends Component {
       } else {
         return (
           <View style={styles.rectangleContainer}>
-            <View style={[styles.rectangle, this.props.markerStyle]} />
+            <View style={[styles.rectangle, this.props.markerStyle ? this.props.markerStyle : null]} />
           </View>
         );
       }
