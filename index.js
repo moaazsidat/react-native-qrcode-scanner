@@ -41,7 +41,7 @@ export default class QRCodeScanner extends Component {
     permissionDialogTitle: PropTypes.string,
     permissionDialogMessage: PropTypes.string,
     checkAndroid6Permissions: PropTypes.bool,
-    cameraProps: PropTypes.object
+    cameraProps: PropTypes.object,
   };
 
   static defaultProps = {
@@ -91,6 +91,7 @@ export default class QRCodeScanner extends Component {
     permissionDialogTitle: 'Info',
     permissionDialogMessage: 'Need camera permission',
     checkAndroid6Permissions: false,
+    cameraProps: {},
   };
 
   constructor(props) {
