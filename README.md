@@ -157,6 +157,13 @@ default: `false`
 When set to `false`,  when a QR code is scanned, the `QRCodeScanner` will not scan another code until it is re-rendered.
 When set to `true` this will reactivate the scanning ability of the component.
 
+#### `vibrate`
+propType: `bool`
+default: `true`
+
+When set to `false` this can disable vibration when code scanned.
+If you use this library by npm, you can't use the `vibrate` propType. You can download from here and then replace the previous folder in /node_modules.
+
 #### `reactivateTimeout`
 propType: `number`
 default: `0`
