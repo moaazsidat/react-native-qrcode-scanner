@@ -162,7 +162,7 @@ propType: `bool`
 default: `true`
 
 When set to `false` this can disable vibration when code scanned.
-If you use this library by npm, you can't use the `vibrate` propType. You can download from here and then replace the previous folder in /node_modules.
+If you use this library by npm, you can't use the `vibrate` propType. You can download from here and then replace the previous folder in `/node_modules`.
 
 #### `reactivateTimeout`
 propType: `number`
