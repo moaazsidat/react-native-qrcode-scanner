@@ -163,6 +163,13 @@ default: `0`
 
 Use this to configure how long it should take before the `QRCodeScanner` should reactivate.
 
+#### `cameraTimeout`
+propType: `number`
+default: `0`
+
+Use this to configure how long it should take before the `QRCodeScanner` should be displayed. After that the camera will be inactived and press the view to reactivate it.
+The `0` default means it's always on.
+
 #### `topContent`
 propType: `oneOfType([
   PropTypes.element,
