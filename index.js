@@ -13,6 +13,7 @@ import {
   Text,
   Platform,
   PermissionsAndroid,
+  TouchableWithoutFeedback,
 } from 'react-native';
 
 import Permissions from 'react-native-permissions';
@@ -27,6 +28,7 @@ export default class QRCodeScanner extends Component {
     vibrate: PropTypes.bool,
     reactivate: PropTypes.bool,
     reactivateTimeout: PropTypes.number,
+    cameraTimeout: PropTypes.number,
     fadeIn: PropTypes.bool,
     showMarker: PropTypes.bool,
     cameraType: PropTypes.oneOf(['front', 'back']),
@@ -48,6 +50,7 @@ export default class QRCodeScanner extends Component {
     reactivate: false,
     vibrate: true,
     reactivateTimeout: 0,
+    cameraTimeout: 0,
     fadeIn: true,
     showMarker: false,
     cameraType: 'back',
@@ -96,6 +99,7 @@ export default class QRCodeScanner extends Component {
     super(props);
     this.state = {
       scanning: false,
+      isCameraActivated: true,
       fadeInOpacity: new Animated.Value(0),
       isAuthorized: false,
       isAuthorizationChecked: false,
@@ -156,6 +160,13 @@ export default class QRCodeScanner extends Component {
     this.setState({ scanning: value });
   }
 
+  _setCamera(value) {
+    this.setState({
+      isCameraActivated: value,
+      scanning: false,
+    });
+  }
+
   _handleBarCodeRead(e) {
     if (!this.state.scanning && !this.state.disableVibrationByUser) {
       if (this.props.vibrate) {
@@ -207,8 +218,27 @@ export default class QRCodeScanner extends Component {
       pendingAuthorizationView,
       cameraType,
     } = this.props;
+
+    if (!this.state.isCameraActivated) {
+      return (
+        <TouchableWithoutFeedback onPress={() => this._setCamera(true)}>
+          <View style={[styles.camera, styles.inactiveContainer]}>
+            <Text style={styles.inactiveLabel}>Tap to activate camera</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      );
+    }
+
     const { isAuthorized, isAuthorizationChecked } = this.state;
     if (isAuthorized) {
+      if (this.props.cameraTimeout > 0) {
+        this.timer && clearTimeout(this.timer);
+        this.timer = setTimeout(
+          () => this._setCamera(false),
+          this.props.cameraTimeout
+        );
+      }
+
       if (this.props.fadeIn) {
         return (
           <Animated.View
@@ -295,5 +325,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
+  },
+
+  inactiveLabel: {
+    color: 'white',
+  },
+
+  inactiveContainer: {
+    backgroundColor: 'black',
   },
 });
