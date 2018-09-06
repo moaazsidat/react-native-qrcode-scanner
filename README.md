@@ -199,14 +199,19 @@ propType: `any`
 
 Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
 
-#### `showMarker` 
+#### `showMarker`
 propType: `boolean`
 default: `false`
 
-Use this to show marker on the camera scanning window
+Use this to show marker on the camera scanning window.
 
 #### `customMarker`
 propType: `element`
+
+Use this to add custom styling to the default marker.
+
+#### `markerStyle`
+propType: `any`
 
 Pass a RN element/component to use it as a custom marker.
 
