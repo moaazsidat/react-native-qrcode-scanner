@@ -307,9 +307,4 @@ const styles = StyleSheet.create({
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
   },
-<<<<<<< HEAD
 })
-
-=======
-});
->>>>>>> e7a01fb3f948e5632957970ba453edd5ab977700
