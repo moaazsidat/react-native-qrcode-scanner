@@ -244,6 +244,12 @@ default: `'Need camera permission'`
 
 Use this to setting permission dialog message (Android only).
 
+#### `cameraProps`
+propType: `object`
+
+Properties to be passed to the `Camera` component.
+
+
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
