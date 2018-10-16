@@ -208,12 +208,12 @@ Use this to show marker on the camera scanning window.
 #### `customMarker`
 propType: `element`
 
-Use this to add custom styling to the default marker.
+Pass a RN element/component to use it as a custom marker.
 
 #### `markerStyle`
 propType: `any`
 
-Pass a RN element/component to use it as a custom marker.
+Use this to add custom styling to the default marker.
 
 #### `notAuthorizedView`
 propType: `element`
