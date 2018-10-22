@@ -8,7 +8,7 @@ Please note, this will also function as a generic barcode scanner by the virtue 
 
 I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup. 
 
-Looking for active contributors (if you're interested, reach out to me at moaazsidat@gmail.com)
+Looking for active contributors (if you're interested, create an issue titled 'Contributor', and create a pull request to address one of the issues)
 
 ## Getting started
 
