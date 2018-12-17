@@ -19,7 +19,7 @@ interface Size<T = number> {
 }
 
 export interface Event {
-  data: string,
+  data: any,
   type: keyof BarCodeType,
   /**
    * @description For Android use `[Point<string>, Point<string>]`
