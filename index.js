@@ -108,7 +108,7 @@ export default class QRCodeScanner extends Component {
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (Platform.OS === 'ios') {
       Permissions.request(CAMERA_PERMISSION).then(response => {
         this.setState({
@@ -134,9 +134,7 @@ export default class QRCodeScanner extends Component {
     } else {
       this.setState({ isAuthorized: true, isAuthorizationChecked: true });
     }
-  }
-
-  componentDidMount() {
+    
     if (this.props.fadeIn) {
       Animated.sequence([
         Animated.delay(1000),
