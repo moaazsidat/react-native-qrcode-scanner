@@ -22,6 +22,7 @@ class ScanScreen extends Component {
   render() {
     return (
       <QRCodeScanner
+        cameraProps={{ captureAudio: false }} // only if you want camera but not microphone
         onRead={this.onSuccess.bind(this)}
         topContent={
           <Text style={styles.centerText}>
