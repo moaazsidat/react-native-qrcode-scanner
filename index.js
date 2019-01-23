@@ -224,6 +224,7 @@ export default class QRCodeScanner extends Component {
               style={[styles.camera, this.props.cameraStyle]}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
+              captureAudio={false}
               {...this.props.cameraProps}
             >
               {this._renderCameraMarker()}
@@ -236,6 +237,7 @@ export default class QRCodeScanner extends Component {
           type={cameraType}
           style={[styles.camera, this.props.cameraStyle]}
           onBarCodeRead={this._handleBarCodeRead.bind(this)}
+          captureAudio={false}
           {...this.props.cameraProps}
         >
           {this._renderCameraMarker()}
