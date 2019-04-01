@@ -105,6 +105,7 @@ export default class QRCodeScanner extends Component {
       disableVibrationByUser: false,
     };
 
+    this._scannerTimeout    = null;
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
 
@@ -148,6 +149,15 @@ export default class QRCodeScanner extends Component {
     }
   }
 
+  componentWillUnmount() {
+
+    if(this._scannerTimeout !== null) {
+      clearTimeout(this._scannerTimeout);
+    }
+    this._scannerTimeout = null;
+
+  }
+
   disable() {
     this.setState({ disableVibrationByUser: true });
   }
@@ -167,7 +177,7 @@ export default class QRCodeScanner extends Component {
       this._setScanning(true);
       this.props.onRead(e);
       if (this.props.reactivate) {
-        setTimeout(
+        this._scannerTimeout = setTimeout(
           () => this._setScanning(false),
           this.props.reactivateTimeout
         );
