@@ -10,7 +10,7 @@ I wrote this module because I couldn't find one that could be simply plugged int
 
 Looking for active contributors. See [Contribution guide](https://github.com/moaazsidat/react-native-qrcode-scanner/blob/master/CONTRIBUTION.md) for more details. 
 
-Please note: Most of the support on debugging new issues, especially with Android, relies on the open source community. The project is on the look out for active contributors who want to maintain this library more rigorously.  
+_**Please note**: Most of the support on debugging new issues, especially with Android, relies on the open source community. The project is on the look out for active contributors who want to maintain this library more rigorously._
 
 ## Getting started
 
