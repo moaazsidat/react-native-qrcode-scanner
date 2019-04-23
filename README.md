@@ -76,7 +76,7 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
-  onSuccess(e) {
+  onSuccess = (e) => {
     Linking
       .openURL(e.data)
       .catch(err => console.error('An error occured', err));
@@ -85,7 +85,7 @@ class ScanScreen extends Component {
   render() {
     return (
       <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
+        onRead={this.onSuccess}
         topContent={
           <Text style={styles.centerText}>
             Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
