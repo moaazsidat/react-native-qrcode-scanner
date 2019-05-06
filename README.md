@@ -6,7 +6,7 @@ A QR code scanner component for React Native built on top of [react-native-camer
 
 Please note, this will also function as a generic barcode scanner by the virtue of the above module supporting barcode scanning, however, this module was initially built as a QR code scanner.
 
-I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup. 
+This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup. 
 
 Looking for active contributors. See [Contribution guide](https://github.com/moaazsidat/react-native-qrcode-scanner/blob/master/CONTRIBUTION.md) for more details. 
 
@@ -256,14 +256,7 @@ Properties to be passed to the `Camera` component.
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
 ## Contributors
-- [Matthew Constantine](https://github.com/matthewconstantine)
-- [James Nolan](https://github.com/j-nolan)
-- [Sava Vidakovic](https://github.com/sava-vidakovic)
-- [Maximo Dominguez](https://github.com/mamodom)
-- [Michael J Gallagher](https://github.com/mjgallag)
-- [EzeRangel](https://github.com/EzeRangel)
-- [Alex Gurr](https://github.com/alexgurr)
-- [Krister Kari](https://github.com/kristerkari)
+This project relies on the involvement of its [active contributors](https://github.com/moaazsidat/react-native-qrcode-scanner/graphs/contributors). We're immensely gratetful to everyone who has taken the time to submit pull requests, spent time debugging or filing issues. 
 
 ## License
 See [LICENSE.md](LICENSE.md)
@@ -273,9 +266,14 @@ Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-na
 
 This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
 
+## Donate
+Most of the core contributors maintain this library, add new features, and review PRs in their free time. If you're using react-native-qrcode-scanner in a commercial app, or have found it to be valuable, [please considering donating to the project on OpenCollective](https://opencollective.com/react-native-qrcode-scanner). Please note that you do not need to donate any amount of money in order to use this library. 
 
-## Other notes
+This is how the donations will be used:
 
-### To do
-- Document other complex examples
-- Add some tests
+- Allow the core contributors to work on react-native-qrcode-scanner
+- Thank contributors if they invested a large amount of time in contributing
+- Setup a contributor bounty program to encourage participation
+- Fees for money handling
+
+Thanks to any donors and supporters! 
