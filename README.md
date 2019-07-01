@@ -256,25 +256,30 @@ Properties to be passed to the `Camera` component.
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
 ## Contributors
-This project relies on the involvement of its [active contributors](https://github.com/moaazsidat/react-native-qrcode-scanner/graphs/contributors). We're immensely gratetful to everyone who has taken the time to submit pull requests, spent time debugging or filing issues. 
 
-## Contributors
-
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who contribute. We're immensely gratetful to everyone who has taken the time to submit pull requests, spent time debugging or filing issues.  
 
 <a href="https://github.com/moaazsidat/react-native-qrcode-scanner/graphs/contributors"><img src="https://opencollective.com/react-native-qrcode-scanner/contributors.svg?width=890&button=false" /></a>
 
 
-## Backers
+## Backers & Sponsors
 
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/react-native-qrcode-scanner#backer)]
+Most of the core contributors maintain this library, add new features, and review PRs in their free time. If you're using react-native-qrcode-scanner in a commercial app, or have found it to be valuable, [please considering backing or sponsoring the project on OpenCollective](https://opencollective.com/react-native-qrcode-scanner). Please note that you do not need to give any amount of money in order to use this library. 
+
+This is how the donations will be used:
+
+- Allow the core contributors to work on react-native-qrcode-scanner
+- Thank contributors if they invested a large amount of time in contributing
+- Setup a contributor bounty program to encourage participation
+- Fees for money handling
+
+Thank you to all our backers & sponsors! 🙏
+
+[[Become a backer](https://opencollective.com/react-native-qrcode-scanner#backer)] [[Become a sponsor](https://opencollective.com/react-native-qrcode-scanner#sponsor)]
 
 <a href="https://opencollective.com/react-native-qrcode-scanner#backers" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/backers.svg?width=890"></a>
 
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/react-native-qrcode-scanner#sponsor)]
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. 
 
 <a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/avatar.svg"></a>
@@ -288,7 +293,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/avatar.svg"></a>
 
 
-
 ## License
 See [LICENSE.md](LICENSE.md)
 
@@ -297,14 +301,3 @@ Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-na
 
 This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
 
-## Donate
-Most of the core contributors maintain this library, add new features, and review PRs in their free time. If you're using react-native-qrcode-scanner in a commercial app, or have found it to be valuable, [please considering donating to the project on OpenCollective](https://opencollective.com/react-native-qrcode-scanner). Please note that you do not need to donate any amount of money in order to use this library. 
-
-This is how the donations will be used:
-
-- Allow the core contributors to work on react-native-qrcode-scanner
-- Thank contributors if they invested a large amount of time in contributing
-- Setup a contributor bounty program to encourage participation
-- Fees for money handling
-
-Thanks to any donors and supporters! 
