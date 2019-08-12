@@ -252,13 +252,15 @@ propType: `object`
 Properties to be passed to the `Camera` component.
 
 #### `flashMode`
-Values: RNCamera.Constants.FlashMode.off (default) or RNCamera.Constants.FlashMode.torch.
+propType: `object`
 
-Specifies the flash mode of your qrcode-scanner.
+Values: `RNCamera.Constants.FlashMode.off (default)` or `RNCamera.Constants.FlashMode.torch`.
 
-RNCamera.Constants.FlashMode.off turns it off.
+Specifies the flash mode to be passed to the `Camera` component.
 
-RNCamera.Constants.FlashMode.torch turns on torch mode, meaning the flash light will be turned on all the time (even before reading qr code) just like a flashlight.
+`RNCamera.Constants.FlashMode.off` turns it off.
+
+`RNCamera.Constants.FlashMode.torch` turns on torch mode, meaning the flash light will be turned on all the time (even before reading qr code) just like a flashlight.
 
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
