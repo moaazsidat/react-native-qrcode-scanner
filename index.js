@@ -128,7 +128,7 @@ export default class QRCodeScanner extends Component {
         const isAuthorized =
           Platform.Version >= 23
             ? granted === PermissionsAndroid.RESULTS.GRANTED
-            : granted === true;
+            : granted === "granted";
 
         this.setState({ isAuthorized, isAuthorizationChecked: true });
       });
