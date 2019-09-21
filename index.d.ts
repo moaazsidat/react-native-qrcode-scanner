@@ -3,7 +3,7 @@
  * If you modify this file, put your GitHub info here as well (for easy contacting purposes)
  */
 import { Component } from "react";
-import { RegisteredStyle, ViewStyle } from "react-native";
+import { ViewStyle, StyleProp } from "react-native";
 import { RNCameraProps } from "react-native-camera";
 
 type BarCodeType = Readonly<{ aztec: any, code128: any, code39: any, code39mod43: any, code93: any, ean13: any, ean8: any, pdf417: any, qr: any, upce: any, interleaved2of5: any, itf14: any, datamatrix: any }>;
@@ -37,11 +37,11 @@ export interface RNQRCodeScannerProps {
   showMarker?: boolean,
   cameraType?: "front" | "back",
   customMarker?: JSX.Element,
-  containerStyle?: RegisteredStyle<ViewStyle>,
-  cameraStyle?: RegisteredStyle<ViewStyle>,
-  markerStyle?: RegisteredStyle<ViewStyle>,
-  topViewStyle?: RegisteredStyle<ViewStyle>,
-  bottomViewStyle?: RegisteredStyle<ViewStyle>,
+  containerStyle?: StyleProp<ViewStyle>,
+  cameraStyle?: StyleProp<ViewStyle>,
+  markerStyle?: StyleProp<ViewStyle>,
+  topViewStyle?: StyleProp<ViewStyle>,
+  bottomViewStyle?: StyleProp<ViewStyle>,
   topContent?: JSX.Element | string,
   bottomContent?: JSX.Element | string,
   notAuthorizedView?: JSX.Element,
