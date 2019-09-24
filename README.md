@@ -56,6 +56,26 @@ react-native link react-native-qrcode-scanner
 react-native link react-native-permissions
 ```
 
+### If you encounter such an error
+
+```
+Cannot choose between the following variants of project :react-native-camera:
+```
+
+follow these steps  
+
+```android/app/build.gradle``` add in 
+
+```
+android {
+  ...
+  defaultConfig {
+    ...
+    missingDimensionStrategy 'react-native-camera', 'general' <-- insert this line
+  }
+}
+```
+
 ## Usage
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
 
