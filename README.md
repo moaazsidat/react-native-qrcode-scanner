@@ -85,8 +85,7 @@ class ScanScreen extends Component {
   render() {
     return (
       <QRCodeScanner
-        onRead={this.onSuccess}
-        flashMode={QRCodeScanner.Constants.FlashMode.torch}      
+        onRead={this.onSuccess}   
         topContent={
           <Text style={styles.centerText}>
             Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
