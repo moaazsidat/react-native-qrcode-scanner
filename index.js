@@ -15,18 +15,16 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 
-import {request, PERMISSIONS} from 'react-native-permissions';
+import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { RNCamera as Camera } from 'react-native-camera';
 
-const PERMISSION_AUTHORIZED = 'authorized';
-const CAMERA_PERMISSION = 'camera';
 const CAMERA_FLASH_MODE = Camera.Constants.FlashMode;
 const CAMERA_FLASH_MODES = [
   CAMERA_FLASH_MODE.torch, CAMERA_FLASH_MODE.on, CAMERA_FLASH_MODE.off,
   CAMERA_FLASH_MODE.auto];
 
 export default class QRCodeScanner extends Component {
-  
+
   static propTypes = {
     onRead: PropTypes.func.isRequired,
     vibrate: PropTypes.bool,
@@ -120,11 +118,9 @@ export default class QRCodeScanner extends Component {
 
   componentDidMount() {
     if (Platform.OS === 'ios') {
-      Promise.all([
-        request(PERMISSIONS.IOS.CAMERA),
-      ]).then(([cameraStatus]) => {
+      request(PERMISSIONS.IOS.CAMERA).then((cameraStatus) => {
         this.setState({
-          isAuthorized: cameraStatus === "granted",
+          isAuthorized: cameraStatus === RESULTS.GRANTED,
           isAuthorizationChecked: true,
         });
       });
@@ -143,7 +139,7 @@ export default class QRCodeScanner extends Component {
     } else {
       this.setState({ isAuthorized: true, isAuthorizationChecked: true });
     }
-    
+
     if (this.props.fadeIn) {
       Animated.sequence([
         Animated.delay(1000),
@@ -321,4 +317,4 @@ const styles = StyleSheet.create({
     borderColor: '#00FF00',
     backgroundColor: 'transparent',
   },
-})
+});
