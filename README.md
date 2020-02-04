@@ -1,14 +1,16 @@
 # react-native-qrcode-scanner
-[![npm version](https://badge.fury.io/js/react-native-qrcode-scanner.svg)](https://badge.fury.io/js/react-native-qrcode-scanner)
+[![npm version](https://badge.fury.io/js/react-native-qrcode-scanner.svg)](https://badge.fury.io/js/react-native-qrcode-scanner) [![Backers on Open Collective](https://opencollective.com/react-native-qrcode-scanner/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-native-qrcode-scanner/sponsors/badge.svg)](#sponsors) 
 
 A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
 
 
 Please note, this will also function as a generic barcode scanner by the virtue of the above module supporting barcode scanning, however, this module was initially built as a QR code scanner.
 
-I wrote this module because I couldn't find one that could be simply plugged into a project without requiring too much setup. 
+This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup. 
 
-Looking for active contributors (if you're interested, reach out to me at moaazsidat@gmail.com)
+Looking for active contributors. See [Contribution guide](https://github.com/moaazsidat/react-native-qrcode-scanner/blob/master/CONTRIBUTION.md) for more details. 
+
+_**Please note**: Most of the support on debugging new issues, especially with Android, relies on the open source community. The project is on the look out for active contributors who want to maintain this library more rigorously._
 
 ## Getting started
 
@@ -74,7 +76,7 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
-  onSuccess(e) {
+  onSuccess = (e) => {
     Linking
       .openURL(e.data)
       .catch(err => console.error('An error occured', err));
@@ -83,7 +85,8 @@ class ScanScreen extends Component {
   render() {
     return (
       <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
+        onRead={this.onSuccess}
+        flashMode={QRCodeScanner.Constants.FlashMode.torch}      
         topContent={
           <Text style={styles.centerText}>
             Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
@@ -163,12 +166,27 @@ default: `0`
 
 Use this to configure how long it should take before the `QRCodeScanner` should reactivate.
 
+
 #### `cameraTimeout`
 propType: `number`
 default: `0`
 
 Use this to configure how long it should take before the `QRCodeScanner` should be displayed. After that the camera will be inactive and press the view to reactivate it.
 The `0` default means it's always on.
+
+#### `flashMode`
+propType: `QRCodeScanner.Constants.FlashMode`
+default: `QRCodeScanner.Constants.FlashMode.auto`
+
+**Flash modes**
+
+FYI: [react-native-camera/flashMode](https://github.com/react-native-community/react-native-camera/blob/master/docs/RNCamera.md#flashmode)
+
+* ```QRCodeScanner.Constants.FlashMode.off``` turns it off.
+* ```QRCodeScanner.Constants.FlashMode.on``` means camera will use flash in all photos taken.
+* ```QRCodeScanner.Constants.FlashMode.auto``` leaves your phone to decide when to use flash when taking photos, based on the lightning conditions that the camera observes.
+* ```QRCodeScanner.Constants.FlashMode.torch``` turns on torch mode, meaning the flash light will be turned on all the time (even before taking photo) just like a flashlight.
+
 
 #### `topContent`
 propType: `oneOfType([
@@ -206,16 +224,21 @@ propType: `any`
 
 Use this to pass or overwrite styling for the `<View>` that contains the `bottomContent` prop.
 
-#### `showMarker` 
+#### `showMarker`
 propType: `boolean`
 default: `false`
 
-Use this to show marker on the camera scanning window
+Use this to show marker on the camera scanning window.
 
 #### `customMarker`
 propType: `element`
 
 Pass a RN element/component to use it as a custom marker.
+
+#### `markerStyle`
+propType: `any`
+
+Use this to add custom styling to the default marker.
 
 #### `notAuthorizedView`
 propType: `element`
@@ -246,18 +269,62 @@ default: `'Need camera permission'`
 
 Use this to setting permission dialog message (Android only).
 
+#### `cameraProps`
+propType: `object`
+
+Properties to be passed to the `Camera` component.
+
+#### `flashMode`
+propType: `object`
+
+Values: `RNCamera.Constants.FlashMode.off (default)` or `RNCamera.Constants.FlashMode.torch`.
+
+Specifies the flash mode to be passed to the `Camera` component.
+
+`RNCamera.Constants.FlashMode.off` turns it off.
+
+`RNCamera.Constants.FlashMode.torch` turns on torch mode, meaning the flash light will be turned on all the time (even before reading qr code) just like a flashlight.
+
 <!--## Contriubting-->
 <!--See [CONTRIBUTING.md](CONTRIBUTING.md)-->
 
 ## Contributors
-- [Matthew Constantine](https://github.com/matthewconstantine)
-- [James Nolan](https://github.com/j-nolan)
-- [Sava Vidakovic](https://github.com/sava-vidakovic)
-- [Maximo Dominguez](https://github.com/mamodom)
-- [Michael J Gallagher](https://github.com/mjgallag)
-- [EzeRangel](https://github.com/EzeRangel)
-- [Alex Gurr](https://github.com/alexgurr)
-- [Krister Kari](https://github.com/kristerkari)
+
+This project exists thanks to all the people who contribute. We're immensely gratetful to everyone who has taken the time to submit pull requests, spent time debugging or filing issues.  
+
+<a href="https://github.com/moaazsidat/react-native-qrcode-scanner/graphs/contributors"><img src="https://opencollective.com/react-native-qrcode-scanner/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers & Sponsors
+
+Most of the core contributors maintain this library, add new features, and review PRs in their free time. If you're using react-native-qrcode-scanner in a commercial app, or have found it to be valuable, [please considering backing or sponsoring the project on OpenCollective](https://opencollective.com/react-native-qrcode-scanner). Please note that you do not need to give any amount of money in order to use this library. 
+
+This is how the donations will be used:
+
+- Allow the core contributors to work on react-native-qrcode-scanner
+- Thank contributors if they invested a large amount of time in contributing
+- Setup a contributor bounty program to encourage participation
+- Fees for money handling
+
+Thank you to all our backers & sponsors! 🙏
+
+[[Become a backer](https://opencollective.com/react-native-qrcode-scanner#backer)] [[Become a sponsor](https://opencollective.com/react-native-qrcode-scanner#sponsor)]
+
+<a href="https://opencollective.com/react-native-qrcode-scanner#backers" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/backers.svg?width=890"></a>
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. 
+
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/2/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/3/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/4/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/5/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/6/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/7/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/8/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/website" target="_blank"><img src="https://opencollective.com/react-native-qrcode-scanner/sponsor/9/avatar.svg"></a>
+
 
 ## License
 See [LICENSE.md](LICENSE.md)
@@ -267,9 +334,3 @@ Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-na
 
 This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
 
-
-## Other notes
-
-### To do
-- Document other complex examples
-- Add some tests
