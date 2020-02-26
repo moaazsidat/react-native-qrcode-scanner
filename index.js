@@ -44,6 +44,7 @@ export default class QRCodeScanner extends Component {
     notAuthorizedView: PropTypes.element,
     permissionDialogTitle: PropTypes.string,
     permissionDialogMessage: PropTypes.string,
+    buttonPositive: PropTypes.string,
     checkAndroid6Permissions: PropTypes.bool,
     flashMode: PropTypes.oneOf(CAMERA_FLASH_MODES),
     cameraProps: PropTypes.object,
@@ -96,6 +97,7 @@ export default class QRCodeScanner extends Component {
     ),
     permissionDialogTitle: 'Info',
     permissionDialogMessage: 'Need camera permission',
+    buttonPositive: 'OK',
     checkAndroid6Permissions: false,
     flashMode: CAMERA_FLASH_MODE.auto,
     cameraProps: {},
@@ -216,6 +218,26 @@ export default class QRCodeScanner extends Component {
     return null;
   }
 
+  _renderCameraComponent() {
+    return (
+      <Camera
+        androidCameraPermissionOptions={{
+          title: this.props.permissionDialogTitle,
+          message: this.props.permissionDialogMessage,
+          buttonPositive: this.props.buttonPositive
+        }}
+        style={[styles.camera, this.props.cameraStyle]}
+        onBarCodeRead={this._handleBarCodeRead.bind(this)}
+        type={this.props.cameraType}
+        flashMode={this.state.flashMode}
+        captureAudio={false}
+        {...this.props.cameraProps}
+      >
+        {this._renderCameraMarker()}
+      </Camera>
+    )
+  }
+
   _renderCamera() {
     const {
       notAuthorizedView,
@@ -230,33 +252,12 @@ export default class QRCodeScanner extends Component {
             style={{
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent',
+	      height: styles.camera.height
             }}
-          >
-            <Camera
-              style={[styles.camera, this.props.cameraStyle]}
-              onBarCodeRead={this._handleBarCodeRead.bind(this)}
-              type={this.props.cameraType}
-              flashMode={this.state.flashMode}
-              captureAudio={false}
-              {...this.props.cameraProps}
-            >
-              {this._renderCameraMarker()}
-            </Camera>
-          </Animated.View>
+          >{this._renderCameraComponent()}</Animated.View>
         );
       }
-      return (
-        <Camera
-          type={cameraType}
-          style={[styles.camera, this.props.cameraStyle]}
-          onBarCodeRead={this._handleBarCodeRead.bind(this)}
-          flashMode={this.state.flashMode}
-          captureAudio={false}
-          {...this.props.cameraProps}
-        >
-          {this._renderCameraMarker()}
-        </Camera>
-      );
+      return this._renderCameraComponent();
     } else if (!isAuthorizationChecked) {
       return pendingAuthorizationView;
     } else {
