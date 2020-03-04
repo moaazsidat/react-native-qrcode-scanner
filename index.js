@@ -110,7 +110,6 @@ export default class QRCodeScanner extends Component {
       fadeInOpacity: new Animated.Value(0),
       isAuthorized: false,
       isAuthorizationChecked: false,
-      flashMode: props.flashMode,
       disableVibrationByUser: false,
     };
 
@@ -253,8 +252,7 @@ export default class QRCodeScanner extends Component {
               opacity: this.state.fadeInOpacity,
               backgroundColor: 'transparent',
 	      height: styles.camera.height
-            }}
-          >{this._renderCameraComponent()}</Animated.View>
+            }}>{this._renderCameraComponent()}</Animated.View>
         );
       }
       return this._renderCameraComponent();
