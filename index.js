@@ -108,7 +108,6 @@ export default class QRCodeScanner extends Component {
       fadeInOpacity: new Animated.Value(0),
       isAuthorized: false,
       isAuthorizationChecked: false,
-      flashMode: props.flashMode,
       disableVibrationByUser: false,
     };
 
@@ -236,7 +235,7 @@ export default class QRCodeScanner extends Component {
               style={[styles.camera, this.props.cameraStyle]}
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
-              flashMode={this.state.flashMode}
+              flashMode={this.props.flashMode}
               captureAudio={false}
               {...this.props.cameraProps}
             >
@@ -250,7 +249,7 @@ export default class QRCodeScanner extends Component {
           type={cameraType}
           style={[styles.camera, this.props.cameraStyle]}
           onBarCodeRead={this._handleBarCodeRead.bind(this)}
-          flashMode={this.state.flashMode}
+          flashMode={this.props.flashMode}
           captureAudio={false}
           {...this.props.cameraProps}
         >
