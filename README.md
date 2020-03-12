@@ -50,6 +50,7 @@ If using an older version of this module with RCTCamera you will need to follow 
 ### To install and start using react-native-qrcode-scanner:
 ```
 npm install react-native-qrcode-scanner --save
+npm install react-native-permissions --save
 ```
 ```
 react-native link react-native-qrcode-scanner
