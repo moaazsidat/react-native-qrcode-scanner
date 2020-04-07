@@ -147,7 +147,8 @@ export default class QRCodeScanner extends Component {
         Animated.delay(1000),
         Animated.timing(this.state.fadeInOpacity, {
           toValue: 1,
-          easing: Easing.inOut(Easing.quad)
+          easing: Easing.inOut(Easing.quad),
+          useNativeDriver: true
         })
       ]).start();
     }
