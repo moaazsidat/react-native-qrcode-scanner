@@ -40,6 +40,16 @@ With Android 7 and higher you need to add the "Vibration" permission to your And
 ```
 <uses-permission android:name="android.permission.VIBRATE"/>
 ```
+You need to add the "missingDimensionStrategy" config for the 'react-native-camera' setting  to 'general', this should be found in your `android/app/build.gradle` add the following:
+```
+android {
+  ...
+  defaultConfig {
+    ...
+    missingDimensionStrategy 'react-native-camera', 'general' <-- insert this line
+  }
+}
+```
 
 #### react-native-camera
 
