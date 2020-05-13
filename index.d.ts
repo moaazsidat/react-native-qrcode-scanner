@@ -66,6 +66,7 @@ export interface RNQRCodeScannerProps {
   buttonPositive?: string;
   checkAndroid6Permissions?: boolean;
   cameraProps?: RNCameraProps;
+  cameraTimeoutView?: JSX.Element;
 }
 
 export interface RNQRCodeScannerState {
