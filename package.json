@@ -34,7 +34,7 @@
     "react-native-permissions": "^2.0.2"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react-native": "^3.8.1",
     "husky": "^0.14.3",
