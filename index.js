@@ -96,7 +96,6 @@ export default class QRCodeScanner extends Component {
 					flex: 0,
 					alignItems: 'center',
 					justifyContent: 'center',
-					backgroundColor: 'transparent',
 					height: Dimensions.get('window').width,
 					width: Dimensions.get('window').width,
 					backgroundColor: 'black',
