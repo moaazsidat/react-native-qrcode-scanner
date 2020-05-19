@@ -196,7 +196,7 @@ The `0` default means it's always on.
 
 propType: `element`
 
-Pass a RN element/component to use it when the camera is inactive (after `cameraTimeout` milliseconds).
+Pass a RN element/component to show it when the camera is inactive for `cameraTimeout` (another props) milliseconds. If the `camearTimeout` is 0 or not specified, this prop will never be used.
 
 #### `flashMode`
 
