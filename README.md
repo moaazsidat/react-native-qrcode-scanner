@@ -194,6 +194,20 @@ default: `0`
 
 Use this to configure how long it should take before the `QRCodeScanner` should reactivate.
 
+
+#### `cameraTimeout`
+propType: `number`
+default: `0`
+
+Use this to configure how long it should take (in millisecond) before the `QRCodeScanner` should be displayed. After that the camera will be inactive and press the view to reactivate it.
+The `0` default means it's always on.
+
+#### `cameraTimeoutView`
+
+propType: `element`
+
+Pass an RN element/component to show it when the camera is inactive for `cameraTimeout` (another prop) milliseconds. If the `cameraTimeout` is 0 or not specified, this prop will never be used.
+
 #### `flashMode`
 
 propType: `RNCamera.Constants.FlashMode`
@@ -207,6 +221,7 @@ FYI: [react-native-camera/flashMode](https://github.com/react-native-community/r
 - `RNCamera.Constants.FlashMode.on` means camera will use flash in all photos taken.
 - `RNCamera.Constants.FlashMode.auto` leaves your phone to decide when to use flash when taking photos, based on the lightning conditions that the camera observes.
 - `RNCamera.Constants.FlashMode.torch` turns on torch mode, meaning the flash light will be turned on all the time (even before taking photo) just like a flashlight.
+
 
 #### `topContent`
 
