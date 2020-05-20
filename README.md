@@ -76,6 +76,17 @@ react-native link react-native-qrcode-scanner
 react-native link react-native-permissions
 ```
 
+#### react-native-permissions
+
+For iOS, as part of the [react-native-permissions setup](https://github.com/react-native-community/react-native-permissions#setup) you will need to add the following code to your `Podfile`
+
+```
+permissions_path = '../node_modules/react-native-permissions/ios'
+pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+```
+
+You may also need to reset your simulator data after adding those permissions `Device -> Erase All Content and Settings...`
+
 ## Usage
 
 To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
