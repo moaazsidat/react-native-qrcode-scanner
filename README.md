@@ -66,15 +66,24 @@ If using an older version of this module with RCTCamera you will need to follow 
 
 ### To install and start using react-native-qrcode-scanner:
 
-```
-npm install react-native-qrcode-scanner --save
-npm install react-native-permissions --save
-```
+1. `npm install react-native-qrcode-scanner --save`
+2. `react-native link react-native-qrcode-scanner`
+
+#### react-native-permissions
+
+You will also need to install react-native-permissions to handle camera related permissions
+
+1. `npm install react-native-permissions --save`
+2. `react-native link react-native-permissions`
+
+For iOS, as part of the [react-native-permissions setup](https://github.com/react-native-community/react-native-permissions#setup) you will need to add the following code to your `Podfile`
 
 ```
-react-native link react-native-qrcode-scanner
-react-native link react-native-permissions
+permissions_path = '../node_modules/react-native-permissions/ios'
+pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
 ```
+
+You may also need to reset your simulator data after adding those permissions `Device -> Erase All Content and Settings...`
 
 ## Usage
 
