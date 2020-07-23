@@ -133,6 +133,7 @@ export default class QRCodeScanner extends Component {
 			PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
 				title: this.props.permissionDialogTitle,
 				message: this.props.permissionDialogMessage,
+				buttonPositive: this.props.buttonPositive,
 			}).then(granted => {
 				const isAuthorized = granted === PermissionsAndroid.RESULTS.GRANTED;
 
