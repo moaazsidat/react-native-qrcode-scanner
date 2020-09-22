@@ -279,7 +279,7 @@ export default class QRCodeScanner extends Component {
 						style={{
 							opacity: this.state.fadeInOpacity,
 							backgroundColor: 'transparent',
-							height: styles.camera.height,
+							height: (this.props.cameraStyle && this.props.cameraStyle.height) || styles.camera.height,
 						}}
 					>
 						{this._renderCameraComponent()}
