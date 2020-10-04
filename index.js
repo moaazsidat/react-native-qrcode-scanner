@@ -271,7 +271,8 @@ export default class QRCodeScanner extends Component {
 			if (this.props.cameraTimeout > 0) {
 				this.timer && clearTimeout(this.timer);
 				this.timer = setTimeout(() => this._setCamera(false), this.props.cameraTimeout);
-			}
+      		}
+
 
 			if (this.props.fadeIn) {
 				return (
@@ -279,7 +280,7 @@ export default class QRCodeScanner extends Component {
 						style={{
 							opacity: this.state.fadeInOpacity,
 							backgroundColor: 'transparent',
-							height: styles.camera.height,
+							height:  (this.props.cameraStyle && this.props.cameraStyle.height) || styles.camera.height,
 						}}
 					>
 						{this._renderCameraComponent()}
