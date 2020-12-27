@@ -10,14 +10,16 @@ import {
   AppRegistry,
   StyleSheet,
   NavigatorIOS,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
   onSuccess(e) {
-    Linking.openURL(e.data).catch(err => console.error('An error occured', err))
+    Linking.openURL(e.data).catch(err =>
+      console.error('An error occured', err)
+    );
   }
 
   render() {
@@ -31,11 +33,11 @@ class ScanScreen extends Component {
             cameraStyle: styles.cameraContainer,
             topViewStyle: styles.zeroContainer,
             bottomViewStyle: styles.zeroContainer,
-          }
+          },
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
-    )
+    );
   }
 }
 

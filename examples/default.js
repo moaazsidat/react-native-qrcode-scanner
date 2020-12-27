@@ -14,9 +14,9 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanScreen extends Component {
   onSuccess(e) {
-    Linking
-      .openURL(e.data)
-      .catch(err => console.error('An error occured', err));
+    Linking.openURL(e.data).catch(err =>
+      console.error('An error occured', err)
+    );
   }
 
   render() {
@@ -25,7 +25,9 @@ class ScanScreen extends Component {
         onRead={this.onSuccess.bind(this)}
         topContent={
           <Text style={styles.centerText}>
-            Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
+            Go to{' '}
+            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
+            your computer and scan the QR code.
           </Text>
         }
         bottomContent={
