@@ -132,7 +132,7 @@ export default class QRCodeScanner extends Component {
       isAuthorizationChecked: false,
       disableVibrationByUser: false,
     };
-
+    this.timer = null;
     this._scannerTimeout = null;
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
   }
@@ -178,6 +178,10 @@ export default class QRCodeScanner extends Component {
     if (this._scannerTimeout !== null) {
       clearTimeout(this._scannerTimeout);
     }
+    if (this.timer !== null) {
+      clearTimeout(this.timer);
+    }
+    this.timer = null;
     this._scannerTimeout = null;
   }
 
