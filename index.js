@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').width,
     width: Dimensions.get('window').width,
   },
 
