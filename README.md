@@ -256,6 +256,12 @@ propType: `any`
 
 Use this to pass or overwrite styling for the camera window rendered.
 
+#### `cameraContainerStyle`
+
+propType: `any`
+
+Use this to pass or overwrite styling for the camera container (view) window rendered.
+
 #### `topViewStyle`
 
 propType: `any`

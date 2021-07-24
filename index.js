@@ -40,6 +40,7 @@ export default class QRCodeScanner extends Component {
     customMarker: PropTypes.element,
     containerStyle: PropTypes.any,
     cameraStyle: PropTypes.any,
+    cameraContainerStyle: PropTypes.any,
     markerStyle: PropTypes.any,
     topViewStyle: PropTypes.any,
     bottomViewStyle: PropTypes.any,
@@ -349,7 +350,7 @@ export default class QRCodeScanner extends Component {
         <View style={[styles.infoView, this.props.topViewStyle]}>
           {this._renderTopContent()}
         </View>
-        <View style={this.props.cameraStyle}>{this._renderCamera()}</View>
+        <View style={this.props.cameraContainerStyle}>{this._renderCamera()}</View>
         <View style={[styles.infoView, this.props.bottomViewStyle]}>
           {this._renderBottomContent()}
         </View>
