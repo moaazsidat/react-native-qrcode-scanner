@@ -5,7 +5,7 @@
  */
 import { Component } from 'react';
 import { ViewStyle, StyleProp } from 'react-native';
-import { RNCameraProps, BarCodeReadEvent } from 'react-native-camera';
+import { RNCameraProps, BarCodeReadEvent, Constants } from 'react-native-camera';
 
 export interface RNQRCodeScannerProps {
   onRead(e: BarCodeReadEvent): void;
@@ -18,6 +18,7 @@ export interface RNQRCodeScannerProps {
   customMarker?: JSX.Element;
   containerStyle?: StyleProp<ViewStyle>;
   cameraStyle?: StyleProp<ViewStyle>;
+  cameraContainerStyle?: StyleProp<ViewStyle>;
   markerStyle?: StyleProp<ViewStyle>;
   topViewStyle?: StyleProp<ViewStyle>;
   bottomViewStyle?: StyleProp<ViewStyle>;
@@ -28,6 +29,7 @@ export interface RNQRCodeScannerProps {
   permissionDialogMessage?: string;
   buttonPositive?: string;
   checkAndroid6Permissions?: boolean;
+  flashMode?: keyof Constants['FlashMode'];
   cameraProps?: RNCameraProps;
   cameraTimeout?: number;
   cameraTimeoutView?: JSX.Element;
