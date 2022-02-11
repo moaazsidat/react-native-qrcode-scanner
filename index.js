@@ -57,7 +57,7 @@ export default class QRCodeScanner extends Component {
   };
 
   static defaultProps = {
-    onRead: () => console.log('QR code scanned!'),
+    onRead: () => null,
     reactivate: false,
     vibrate: true,
     reactivateTimeout: 0,
