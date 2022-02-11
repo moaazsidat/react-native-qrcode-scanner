@@ -26,7 +26,6 @@
     "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.13.4",
     "prop-types": "^15.5.10",
     "react-native-permissions": "^2.0.2"
   },
