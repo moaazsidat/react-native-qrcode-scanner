@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-scanner",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10",
-    "react-native-permissions": "^2.0.2"
+    "react-native-permissions": "^3.6.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^9.0.0",
