@@ -1,6 +1,6 @@
 {
-  "name": "react-native-qrcode-scanner",
-  "version": "1.5.5",
+  "name": "@groww/react-native-qrcode-scanner",
+  "version": "1.0.1",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moaazsidat/react-native-qrcode-scanner.git"
+    "url": "git+https://github.com/Groww/react-native-qrcode-scanner.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "react-native",
@@ -20,10 +23,10 @@
     "scanner",
     "barcode"
   ],
-  "author": "Moaaz Sidat",
+  "author": "Rajat Gupta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moaazsidat/react-native-qrcode-scanner/issues"
+    "url": "https://github.com/Groww/react-native-qrcode-scanner.git/issues"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
@@ -57,8 +60,7 @@
       "git add"
     ]
   },
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/react-native-qrcode-scanner"
+  "directories": {
+    "example": "examples"
   }
 }
