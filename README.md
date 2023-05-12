@@ -1,5 +1,11 @@
 # react-native-qrcode-scanner
 
+This library was originally written as a plug and play QRCode scanner for React Native without a ton of setup. Since then, the ecosystem has evolved quite a bit, resulting in newer libraries requiring less setup and reducing the need for this project to exist. As such this library has been archived. 
+
+The recommendation of most developers that were previously using this library is to consider using [react-native-vision-camera](https://github.com/mrousavy/react-native-vision-camera) with its plugin [vision-camera-code-scanner](https://github.com/rodgomesc/vision-camera-code-scanner)
+
+## Overview
+
 [![npm version](https://badge.fury.io/js/react-native-qrcode-scanner.svg)](https://badge.fury.io/js/react-native-qrcode-scanner) [![Backers on Open Collective](https://opencollective.com/react-native-qrcode-scanner/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-native-qrcode-scanner/sponsors/badge.svg)](#sponsors)
 
 A QR code scanner component for React Native built on top of [react-native-camera by Lochlan Wansbrough](https://github.com/lwansbrough/react-native-camera)
